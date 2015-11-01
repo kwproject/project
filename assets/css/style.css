@@ -2058,9 +2058,10 @@ h2.form-heading {
   text-transform: uppercase;
   display: inline-block;
   width: 100%;
+  margin-top: 100px;
 }
-html, body#login{
-  background: url(../images/bg.jpg)no-repeat;
+html,body#login{
+  background:#d4d5d5;
   background-size:cover;
   -webkit-background-size:cover;
   -moz-background-size:cover;
@@ -2649,6 +2650,7 @@ td.head {
   margin: 1em auto auto auto;
 }
 h2.form-heading {
+  margin-top: 100px;
   font-size: 16px;
 }  
 .login-social-link a {
@@ -2718,4 +2720,9 @@ span.btn_6{
 span.btn_7{
   font-size: 64%;
 }
+.error
+   {
+    color:#FF6600;
+    font-size:11px;
+   }
 }

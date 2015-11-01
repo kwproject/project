@@ -14,25 +14,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
  <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="<?php echo base_url('assets/css/style.css'); ?>" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
-<link href="css/lines.css" rel='stylesheet' type='text/css' />
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="<?php echo base_url('assets/css/lines.css'); ?>" rel='stylesheet' type='text/css' />
+<link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet"> 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>    
 <!----webfonts--->
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <!---//webfonts--->    
 <!-- Nav CSS -->
-<link href="css/custom.css" rel="stylesheet">
+<link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet">
 <!-- Metis Menu Plugin JavaScript -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="<?php echo base_url('assets/js/metisMenu.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
 <!-- Graph JavaScript -->
-<script src="js/d3.v3.js"></script>
-<script src="js/rickshaw.js"></script>
+<script src="<?php echo base_url('assets/js/d3.v3.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/rickshaw.js') ?>"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Modern</a>
+                <a class="navbar-brand" href="index.html">Dashboard Pariwisata</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
@@ -142,11 +142,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Layouts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Kategori<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="grids.html">Grid System</a>
+                                <li class="li">
+                                    <a href="#">Kategori Provinsi</a>
                                 </li>
+                                <li class="li">
+                                    <a href="#">Kategori Kota</a>
+                                </li>
+                                <li class="li">
+                                    <a href="#">Kategori Pariwisata</a>
+                                </li>
+                                <li class="li">
+                                    <a href="#">Lihat Data</a>
+                                </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -330,10 +340,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <div class="map_container"><div id="vmap" style="width: 100%; height: 400px;"></div></div>
 		  <!----Calender -------->
 			<link rel="stylesheet" href="css/clndr.css" type="text/css" />
-			<script src="js/underscore-min.js" type="text/javascript"></script>
-			<script src= "js/moment-2.2.1.js" type="text/javascript"></script>
-			<script src="js/clndr.js" type="text/javascript"></script>
-			<script src="js/site.js" type="text/javascript"></script>
+			<script src="<?php echo base_url('assets/js/underscore-min.js') ?>" type="text/javascript"></script>
+			<script src="<?php echo base_url('assets/js/moment-2.2.1.js') ?>" type="text/javascript"></script>
+			<script src="<?php echo base_url('assets/js/clndr.js') ?>" type="text/javascript"></script>
+			<script src="<?php echo base_url('assets/js/site.js') ?>" type="text/javascript"></script>
 			<!----End Calender -------->
 		</div>
 		<div class="col-md-6 col_5">
@@ -552,6 +562,6 @@ var detail = new Rickshaw.Graph.HoverDetail({
    </div>
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
 </body>
 </html>
