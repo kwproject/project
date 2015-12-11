@@ -79,7 +79,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                            <a href="<?php echo base_url('admin/c_aktifitas'); ?>"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/c_pariwisata/LihatData'); ?>"><i class="fa fa-envelope nav_icon"></i>Pariwisata</a>

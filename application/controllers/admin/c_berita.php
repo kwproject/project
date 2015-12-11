@@ -8,7 +8,7 @@ class C_berita extends CI_Controller {
         parent::__construct();
         $this->load->library('upload');
         $this->load->library('form_validation');
-        $this->load->model(array('m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_berita'));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+        $this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_berita'));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         if($this->session->userdata('isLogin') != 'berhasil'){
             redirect('login/login_form');
         }
@@ -104,8 +104,18 @@ class C_berita extends CI_Controller {
                         'foto_berita'       => $file_name,
                         'tanggal'           => $date
                     );
+                    $id      = $this->session->userdata('id');
+                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $laporan = array(
+
+                        'id'            => $id,
+                        'aktifitas'     => 'Telah melakukan input data berita dengan judul  '.$judul.'',
+                        'tanggal'       => $date,
+
+                    );
 
                     $hasil = $this->m_berita->InputData($data);
+                    $this->m_history->inputAktifitas($laporan);
                     if ($hasil==1) {
                         echo "<script>
                             alert('Tersimpan')
@@ -178,8 +188,19 @@ class C_berita extends CI_Controller {
                         'isi_berita'    => $isi,
                         'foto_berita'   => $file_name
                     );
+
                 }
-                $this->m_berita->updateData($id,$data);
+                    $id      = $this->session->userdata('id');
+                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $laporan = array(
+
+                        'id'            => $id,
+                        'aktifitas'     => 'Telah melakukan Update data Berita dijudul '.$judul.'',
+                        'tanggal'       => $date,
+
+                    );
+                    $this->m_berita->updateData($id,$data);
+                    $this->m_history->inputAktifitas($laporan);
                 echo "<script>
                         alert('Tersimpan')
                     </script>";
@@ -196,7 +217,22 @@ class C_berita extends CI_Controller {
     
     function delete(){
         
-        $id = $this->uri->segment(4);
+        $id     = $this->uri->segment(4);
+        $hasil  = $this->m_berita->editData($id);
+        foreach ($hasil->result() as $h) {
+           $judul = $h->judul_berita;
+        }
+        $date    = $datetime = date('Y-m-d H:i:s');
+        $id1        = $this->session->userdata('id');   
+        $laporan    = array(
+
+            'id'            => $id1,
+            'aktifitas'     => 'Telah melakukan Update data Berita dijudul '.$judul.'',
+            'tanggal'       => $date,
+
+        );
+
+        $this->m_history->inputAktifitas($laporan);
         $this->m_berita->delete($id);
         echo '<script>
                 alert("berhasil  delete")

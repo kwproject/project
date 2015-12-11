@@ -28,7 +28,27 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading"><?php echo $heading3; ?></div>
 			<div class="panel-body">
-				
+				<table class="display table table-bordered" id="example">
+				<thead>
+					<tr>
+						<th width="10px">No</th>
+						<th>Aktifitas</th>
+						<th>Tanggal</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php $no=1; foreach($record->result() as $r){
+
+						echo "<tr>
+								<td>".$no."</td>
+								<td><b>".$r->username."</b> ".$r->aktifitas."</td>
+								<td>".$r->tanggal."</td>
+							</tr>";
+
+						$no++;
+					}?>
+				</tbody>
+				</table>
 			</div>
 		</div>
 		</div>

@@ -5,7 +5,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library('form_validation');
-			$this->load->model(array('m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
+			$this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
 			if($this->session->userdata('isLogin') != 'berhasil'){
                 redirect('login/login_form');
             }   
@@ -85,6 +85,16 @@
                         'deskripsi'             =>$deskripsi,
                         'id_kota'               =>$nama_kota
                     );
+                    $id      = $this->session->userdata('id');
+                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $laporan = array(
+
+                        'id'            => $id,
+                        'aktifitas'     => 'Telah melakukan Input data pada Pariwisata '.$nama_pariwisata.'',
+                        'tanggal'       => $date,
+
+                    );
+                    $this->m_history->inputAktifitas($laporan);
                     $hasil = $this->m_pariwisata->InputData($input);
                     $this->data['input_data']['notif'] = "Success";
                     $this->data['input_data']['prov'] = $this->m_provinsi->AmbilData();
@@ -171,6 +181,16 @@
                     'nm_pariwisata' => $nm_pariwisata,
                     'deskripsi'     => $deskripsi
                 );
+                $id      = $this->session->userdata('id');
+                $date    = $datetime = date('Y-m-d H:i:s');
+                $laporan = array(
+
+                    'id'            => $id,
+                    'aktifitas'     => 'Telah melakukan Update pada Pariwisata '.$nm_pariwisata.'',
+                    'tanggal'       => $date,
+
+                );
+                $this->m_history->inputAktifitas($laporan);
                 $this->m_pariwisata->updateData($data,$id);
                 $this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
                 $this->template->load('template','admin/pariwisata/lihat_data',$this->data['lihat_data']);
@@ -188,6 +208,20 @@
         function delete(){
 
             $id = $this->uri->segment(4);
+            $hasil = $this->m_pariwisata->getOne($id);
+            foreach ($hasil->result() as $h) {
+                $nm_pariwisata = $h->nm_pariwisata;
+            }
+            $id1     = $this->session->userdata('id');
+            $date    = $datetime = date('Y-m-d H:i:s');
+            $laporan = array(
+
+                'id'            => $id1,
+                'aktifitas'     => 'Telah melakukan Delete pada Pariwisata '.$nm_pariwisata.'',
+                'tanggal'       => $date,
+
+            );
+            $this->m_history->inputAktifitas($laporan);
             $delete = $this->m_pariwisata->delete($id);
             $this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
             $this->template->load('template','admin/pariwisata/lihat_data',$this->data['lihat_data']);

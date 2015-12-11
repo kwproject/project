@@ -7,7 +7,7 @@ class C_aktifitas extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(	'm_login');
+		$this->load->model(array('m_login','m_history'));
 		if ($this->session->userdata('isLogin') != 'berhasil') {
 
 			redirect('login/login_form');
@@ -30,6 +30,7 @@ class C_aktifitas extends CI_Controller {
 	}
 	public function index()
 	{
+		$this->data['lihat_aktifitas']['record']	= $this->m_history->ambilData();
 		$this->template->load('template','admin/history/lihat_aktifitas',$this->data['lihat_aktifitas']);
 	}
 }

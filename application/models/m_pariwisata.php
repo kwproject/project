@@ -25,11 +25,11 @@
 			return $this->db->query($query);
         }
 
-        function getOne($data){
+        function getOne($id){
 
         	$this->db->select('*');
 	        $this->db->from($this->table);
-	        $this->db->where($data);
+	        $this->db->where('id_pariwisata',$id);
 	        $query = $this->db->get();
 	        return $query;
         }
