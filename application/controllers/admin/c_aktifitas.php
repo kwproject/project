@@ -10,8 +10,9 @@ class C_aktifitas extends CI_Controller {
 		$this->load->model(array('m_login','m_history'));
 		if ($this->session->userdata('isLogin') != 'berhasil') {
 
-			redirect('login/login_form');
+			redirect('login');
 		}
+
 		$this->user 	= $this->session->userdata('username');
 		$this->id_user	= $this->session->userdata('id');
 
@@ -30,6 +31,8 @@ class C_aktifitas extends CI_Controller {
 	}
 	public function index()
 	{
+
+
 		$this->data['lihat_aktifitas']['record']	= $this->m_history->ambilData();
 		$this->template->load('template','admin/history/lihat_aktifitas',$this->data['lihat_aktifitas']);
 	}

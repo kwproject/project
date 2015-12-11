@@ -10,7 +10,7 @@ class C_berita extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_berita'));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         if($this->session->userdata('isLogin') != 'berhasil'){
-            redirect('login/login_form');
+            redirect('login');
         }
         $this->user = $this->session->userdata('username');
         $this->data = array(
@@ -96,7 +96,7 @@ class C_berita extends CI_Controller {
                     $file_name  = $image['file_name'];
                     $judul      = $this->input->post('judul');
                     $isi        = $this->input->post('isi');
-                    $date       = $datetime = date('Y-m-d H:i:s');
+                    $date       = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $data = array(
 
                         'judul_berita'      => $judul,
@@ -105,7 +105,7 @@ class C_berita extends CI_Controller {
                         'tanggal'           => $date
                     );
                     $id      = $this->session->userdata('id');
-                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
                         'id'            => $id,
@@ -191,7 +191,7 @@ class C_berita extends CI_Controller {
 
                 }
                     $id      = $this->session->userdata('id');
-                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
                         'id'            => $id,
@@ -222,7 +222,7 @@ class C_berita extends CI_Controller {
         foreach ($hasil->result() as $h) {
            $judul = $h->judul_berita;
         }
-        $date    = $datetime = date('Y-m-d H:i:s');
+        $date       = gmdate("Y-m-d H:i:s", time()+60*60*7);
         $id1        = $this->session->userdata('id');   
         $laporan    = array(
 

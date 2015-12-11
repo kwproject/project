@@ -12,7 +12,7 @@ class Login extends CI_Controller{
         public function index(){
                 $session = $this->session->userdata('Login');
                 if($session != 'berhasil'){
-                        redirect('user/login/login_form');
+                        $this->template->load('template_user','d_user/login_form');
                 }else{
                         redirect('user/home');
                 }
@@ -41,9 +41,7 @@ class Login extends CI_Controller{
                             $data_user['nama']        = $c->nama;
                             $this->session->set_userdata($data_user);
                         }
-                        echo $this->session->userdata('username');
-                        die;
-                        //redirect('user/home');
+                        redirect('user/home');
                 }else{
                         echo " <script>
                                             alert('Gagal Login: Cek username dan password anda!');
@@ -54,7 +52,7 @@ class Login extends CI_Controller{
         }
         public function logout(){
                 $this->session->sess_destroy();
-                redirect('user/login/login_form');
+                redirect('user/home');
         }
         
        

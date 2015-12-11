@@ -5,20 +5,36 @@ class Home extends CI_Controller{
                 parent::__construct();
             $this->load->library(array('session'));
             $this->load->helper('url');
-            $this->load->model('m_login');
+            $this->load->model(array('m_login','m_history'));
             $this->load->database();
+            $this->user     = $this->session->userdata('username');
+            $this->id_user  = $this->session->userdata('id');
+            $this->data = array(
+
+                'lihat_aktifitas'   => array(
+
+                    'heading1'      => 'Aktifitas',
+                    'heading2'      => 'Rekomendasi User',
+                    'heading3'      => 'Aktifitas Admin',
+                    'title'         => 'History',
+                    'pengguna'      => $this->m_login->dataPengguna($this->user),
+                ),
+
+            );
+
         }
 
         public function index(){
-                if($this->session->userdata('isLogin') != 'berhasil'){
-                redirect('login/login_form');
+        if($this->session->userdata('isLogin') != 'berhasil'){
+            redirect('login');
         }else{
                 $data['title']="Dashboard Pariwisata Indonesia";
-                    $this->load->model('m_login');
-                    $user = $this->session->userdata('username');
-                    $data['level'] = $this->session->userdata('level');        
-                    $data['pengguna'] = $this->m_login->dataPengguna($user);
-                    $this->template->load('template','admin/dashboard/dashboard', $data);
-        }
+                $this->load->model('m_login');
+                $user = $this->session->userdata('username');
+                $this->data['lihat_aktifitas']['level'] = $this->session->userdata('level');        
+                $this->data['lihat_aktifitas']['pengguna'] = $this->m_login->dataPengguna($user);
+                $this->data['lihat_aktifitas']['record']    = $this->m_history->ambilData();
+                $this->template->load('template','admin/history/lihat_aktifitas',$this->data['lihat_aktifitas']);
+            }    
         }
 }

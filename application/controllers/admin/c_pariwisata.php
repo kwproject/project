@@ -7,7 +7,7 @@
 			$this->load->library('form_validation');
 			$this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
 			if($this->session->userdata('isLogin') != 'berhasil'){
-                redirect('login/login_form');
+                redirect('login');
             }   
             $this->user = $this->session->userdata('username');
             $this->data = array(
@@ -44,7 +44,7 @@
 		function index(){
 
 			if($this->session->userdata('isLogin') != 'berhasil'){
-                redirect('login/login_form');
+                redirect('login');
         	}else{
             	$this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
                 $this->template->load('template','admin/pariwisata/lihat_data',$this->data['lihat_data']);  
@@ -86,7 +86,7 @@
                         'id_kota'               =>$nama_kota
                     );
                     $id      = $this->session->userdata('id');
-                    $date    = $datetime = date('Y-m-d H:i:s');
+                    $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
                         'id'            => $id,
@@ -182,7 +182,7 @@
                     'deskripsi'     => $deskripsi
                 );
                 $id      = $this->session->userdata('id');
-                $date    = $datetime = date('Y-m-d H:i:s');
+                $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                 $laporan = array(
 
                     'id'            => $id,
@@ -213,7 +213,7 @@
                 $nm_pariwisata = $h->nm_pariwisata;
             }
             $id1     = $this->session->userdata('id');
-            $date    = $datetime = date('Y-m-d H:i:s');
+            $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
             $laporan = array(
 
                 'id'            => $id1,

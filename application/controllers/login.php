@@ -1,6 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller{
+class login extends CI_Controller{
         public function __construct(){
                 parent::__construct();
                 $this->load->model('m_login');
@@ -10,12 +10,10 @@ class Login extends CI_Controller{
         }
 
         public function index(){
-                $session = $this->session->userdata('isLogin');
-                if($session != 'berhasil'){
-                        redirect('login/login_form');
-                }else{
-                        redirect('home');
-                }
+            if ($this->session->userdata('isLogin')=='berhasil') {
+                redirect('home','refresh');
+            }
+            $this->load->view('login');
         }
 
         public function login_form(){
@@ -39,7 +37,6 @@ class Login extends CI_Controller{
                         $user_data['nama']          = $c->nama;
                         $this->session->set_userdata($user_data);
                     }
-                        
                     redirect('home');
                 }else{
                         echo " <script>
@@ -51,7 +48,7 @@ class Login extends CI_Controller{
         }
         public function logout(){
                 $this->session->sess_destroy();
-                redirect('login/login_form');
+                redirect('login');
         }
         
         function register(){

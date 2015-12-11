@@ -6,7 +6,7 @@ class M_admin extends CI_Model {
 	function __construct()
 	{
 		parent::__construct();
-		
+		$this->table = "admin";
 	}
 
 
@@ -14,7 +14,7 @@ class M_admin extends CI_Model {
 
 		$this->db->select('*');
 		$this->db->where('id',$id);
-		$this->db->from('user');
+		$this->db->from($this->table);
 		return $query = $this->db->get();
 
 	}
@@ -22,7 +22,7 @@ class M_admin extends CI_Model {
         function updateProfile($data,$id){
             
             $this->db->where('id',$id);
-            $this->db->update('user',$data);
+            $this->db->update($this->table,$data);
             
         }
 

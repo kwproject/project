@@ -10,14 +10,13 @@ class Home extends CI_Controller{
         }
 
         public function index(){
-            if($this->session->userdata('Login') != 'berhasil'){
-                redirect('user/login/login_form');
-            }else{
+
+
                 $data['title']="Dashboard User Pariwisata Indonesia";
                 $this->load->model('m_login_user');
                 $user = $this->session->userdata('username');       
                 $data['pengguna'] = $this->m_login_user->data($user);
                 $this->template->load('template_user','user/index', $data);
-            }
+            
         }
 }
