@@ -6476,3 +6476,48 @@ Picker.extend( 'pickadate', DatePicker )
   });
 
 }( jQuery ));
+
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+$(document).ready(function() {
+	
+	setTimeout(function(){
+		$('body').addClass('loaded');
+		$('h1').css('color','#222222');
+	}, 500);
+	
+});
+
+$(document).ready(function() {
+
+    $('.collapsible').collapsible();
+    $('.slider').slider({
+        full_width: true
+    });
+    $('.materialboxed').materialbox();
+});
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+
+  $(document).ready(function(){
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+  });
+
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+
+    $(document).ready(function(){
+    $('.slider').slider({full_width: true});
+  });
