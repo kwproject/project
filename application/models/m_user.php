@@ -26,9 +26,9 @@ class M_user extends CI_Model {
             
     }
     
-    function countPesan($id_user){
+    function countPesan($id){
         
-        $this->db->where('id_user',$id_user);
+        $this->db->where('id_user',$id);
         $this->db->select('*');
         $this->db->from('pesan');
         return $this->db->get();
@@ -37,5 +37,5 @@ class M_user extends CI_Model {
 
 }
 
-/* End of file m_admin.php */
+/* End of file m_user.php */
 /* Location: ./application/models/m_admin.php */

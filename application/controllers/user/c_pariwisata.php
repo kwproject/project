@@ -7,7 +7,7 @@
             $this->load->library('form_validation');
             $this->load->model(array('m_user','m_login_user','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
             if($this->session->userdata('Login') == 'login'){
-                redirect('user/login/login_form');
+                redirect('login');
             }
             $this->id   = $this->session->userdata('id_user');
             $this->user = $this->session->userdata('username');
@@ -15,6 +15,7 @@
                     'input_data'    => array(
                         'heading'   => "Input Data Pariwisata",
                         'title'     => "Input Data Pariwisata Indonesia",
+                        'level'     => $this->session->userdata('level'),
                         'pengguna'  => $this->m_login_user->data($this->user),
                         'record'    => '',
                         'count'     => $this->m_user->countPesan($this->id)->num_rows(),
@@ -23,6 +24,7 @@
                         
                         'heading'   => "Pesan",
                         'title'     => "Pesan",
+                        'level'     => $this->session->userdata('level'),
                         'pengguna'  => $this->m_login_user->data($this->user),
                         'count'     => $this->m_user->countPesan($this->id)->num_rows(),
                     ),
@@ -32,7 +34,7 @@
         function index(){
 
             if($this->session->userdata('Login') == FALSE){
-                redirect('user/login/login_form');
+                redirect('login');
             }else{
                 $this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
                 $this->template->load('dashboard_user','d_user/pariwisata/lihat_data',$this->data['lihat_data']);  

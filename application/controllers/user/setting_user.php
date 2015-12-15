@@ -6,19 +6,19 @@
              $this->load->library('form_validation');
             $this->load->model(array('m_user','m_login_user'));
             if($this->session->userdata('Login') != 'berhasil'){
-                redirect('user/login/login_form');
+                redirect('login');
             }
             $this->user         = $this->session->userdata('username');
             $this->id_user      = $this->session->userdata('id_user');
-            $this->data = array(
+                    $this->data = array(
 
-                    'profile'   => array(
-                        'title'     => "Setting Profiles",
-                        'heading'   => "Profile",
-                        'pengguna'  => $this->m_login_user->data($this->user),
-                        'count'     => $this->m_user->countPesan($this->id_user)->num_rows(),
-                    ),
-            );
+                            'profile'   => array(
+                            'title'     => "Setting Profiles",
+                            'heading'   => "Profile",
+                            'pengguna'  => $this->m_login_user->data($this->user),
+                            'count'     => $this->m_user->countPesan($this->id_user)->num_rows(), 
+                            ),
+                    );
         }
         private function setup_upload_option(){
 
@@ -30,7 +30,6 @@
         }
         public function index()
         {
-
             $id_user = $this->session->userdata('id_user');
             $this->data['profile']['record']= $this->m_login_user->ambilData($id_user);
             $this->template->load('dashboard_user','d_user/profile',$this->data['profile']);
@@ -43,7 +42,7 @@
                 $id_user        = $this->session->userdata('id_user');
                 $nama           = $this->input->post('nama');
                 $email          = $this->input->post('email');
-                //$alamat         = $this->input->post('alamat');
+                $alamat         = $this->input->post('alamat');
                 $foto           = $this->input->post('foto');
                 
                 $this->load->library('upload');
@@ -67,7 +66,7 @@
 
                             'nama'      => $nama,
                             'email'     => $email,
-                            //'alamat'    => $alamat,
+                            'alamat'    => $alamat,
                             'foto'      => $path
 
                         );
@@ -78,7 +77,7 @@
                             
                             'nama'      => $nama,
                             'email'     => $email,
-                            //'alamat'    => $alamat,
+                            'alamat'    => $alamat,
                         ); 
                     }
                     $hasil = $this->m_login_user->updateProfile($data,$id_user);

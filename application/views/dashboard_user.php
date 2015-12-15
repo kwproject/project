@@ -71,7 +71,7 @@
                         <li class="dropdown-menu-header text-center">
                             <strong>Account</strong>
                         </li>
-                        <li class="m_2"><a href="<?php echo base_url('user/login/logout'); ?>"><i class="fa fa-lock"></i> Logout</a></li>   
+                        <li class="m_2"><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-lock"></i> Logout</a></li>   
                     </ul>
                 </li>
             </ul>

@@ -44,6 +44,22 @@
                 <label for="password">Email</label>
               </div>
             </div>
+             <div class="row">
+              <div class="input-field col s8 push-s2">&nbsp;<?php echo form_error('jenis_kel','<p class="error">'); ?>
+                <select name="jenis_kel">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="L">Laki Laki</option>
+                  <option value="P">Perempuan</option>
+                </select>
+              <label>Jenis Kelamin</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s8 push-s2">&nbsp;<?php echo form_error('alamat','<p class="error">'); ?>
+                <textarea id="icon_prefix2" name="alamat" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Alamat</label>
+              </div>
+            </div>
             <div class="row">
               <div class="input-field col s8 push-s5">
                 <button class="waves-effect waves-light btn">Daftar</button>

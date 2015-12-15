@@ -41,6 +41,22 @@
           <label for="email">Email</label>
         </div>
       </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <select name="jenis_kel">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="L">Laki Laki</option>
+            <option value="P">Perempuan</option>
+          </select>
+          <label>Jenis Kelamin</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="icon_prefix2" name="alamat" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Alamat</label>
+        </div>
+      </div>
     </form>
   </div>
       <!--Import jQuery before materialize.js-->

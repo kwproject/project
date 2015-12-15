@@ -37,15 +37,15 @@ $(document).ready(function(){
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
           <li><a href="<?php echo base_url('user/app/news'); ?>" class="white-text"><strong>Blog</strong></a></li>
 
-          <?php if($this->session->userdata('Login')=='berhasil'){ ?>
+          <?php if($this->session->userdata('Login')=='berhasil'&& $this->session->userdata('level')==0){ ?>
             <ul id="dropdown1" class="dropdown-content">
               <li><a href="<?php echo base_url('user/setting_user') ?>">Profile</a></li>
-              <li><a href="<?php echo base_url('user/login/logout') ?>">Logout</a></li>
+              <li><a href="<?php echo base_url('login/logout') ?>">Logout</a></li>
             </ul>
-            <li><a href="<?php echo base_url('user/login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="<?php echo base_url('login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
 
           <?php } else { ?>
-              <li><a href="<?php echo base_url('user/login'); ?>" class="white-text"><i class="material-icons left">person</i><strong>Masuk | Gabung</strong></a></li>
+              <li><a href="<?php echo base_url('login'); ?>" class="white-text"><i class="material-icons left">person</i><strong>Masuk | Gabung</strong></a></li>
           <?php } ?>
           
         </ul>
@@ -60,9 +60,27 @@ $(document).ready(function(){
       </div>
     </nav>
   </div>
-    <div class="row">  
+   <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">search</i>
+    </a>
+    <ul>
+    <nav>
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field red">
+            <input id="search" type="search" required>
+            <label for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+    </ul>
+  </div>
+  
       <?php echo $contents;?>
-    </div>  
+
       
     <footer class="page-footer teal">
     <div class="container">

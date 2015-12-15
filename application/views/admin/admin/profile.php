@@ -1,8 +1,11 @@
 
 <div class="panel panel-primary">
-    <div class="panel-heading"><?php echo $heading ?></div>
+    <div class="panel-heading">
+        <div class="panel-title"><?php echo $heading ?></div>
+    </div>
     <div class="panel-body no-padding">
-        <?php echo form_open_multipart('user/setting_user/updateProfile') ?>
+        <div class="col-md-offset-1 col-md-10">
+    	<?php echo form_open_multipart('admin/c_admin/updateProfile') ?>
         <?php foreach ($record->result() as $r) { ?>
         <div class="form-horizontal">
             <?php if(!empty($notif)){
@@ -23,7 +26,7 @@
             <div class="form-group">
                 <label class="col-md-2">Username</label>
                 <div class="col-md-10">
-                    <input type="text"  value="<?php echo $r->username; ?>" class="form-control1" readonly="readonly" required="true">
+                    <input type="text"  value="<?php echo $r->username; ?>" class="form-control1" disabled="disabled" required="true">
                 </div>
             </div>
             <div class="form-group">
@@ -38,26 +41,24 @@
                     <?php echo form_textarea(array('name'=>'alamat','class'=>'form-control1','required'=>'true','value'=>$r->alamat,'style'=>'width:500px;height:300px;')) ?>
                 </div>  
             </div>
-
+            
             <div class="form-group">
                 <label class="col-md-2">foto</label>
                 <div class="col-md-10" style="width:171px;">
                     <div class="thumbnail">
                         <img src="<?php echo base_url('uploads/user/'.$r->foto);?>"> 
                     </div>
-                    <input type="file" name="userfile" required="TRUE">
+                    <input type="file" name="userfile"/>
                 </div>
             </div>
-            &nbsp;
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-2">
                     <button name="submit" class="btn btn-primary"> Simpan</button> <a href="<?php echo base_url('home'); ?>" class="btn btn-danger">Kembali</a>
                 </div>
             </div>
-            <?php } ?>
-            <?php echo form_close(); ?>
-            &nbsp;
-            </div>
+        <?php } ?>
+    	<?php echo form_close(); ?>
+	</div>
         </div>
     </div>
 </div>

@@ -5,17 +5,16 @@ class Home extends CI_Controller{
             parent::__construct();
             $this->load->library(array('session'));
             $this->load->helper('url');
-            $this->load->model('m_login_user');
+            $this->load->model('m_login');
             $this->load->database();
         }
 
         public function index(){
 
-
                 $data['title']="Dashboard User Pariwisata Indonesia";
-                $this->load->model('m_login_user');
+                $this->load->model('m_login');
                 $user = $this->session->userdata('username');       
-                $data['pengguna'] = $this->m_login_user->data($user);
+                $data['pengguna'] = $this->m_login->data($user);
                 $this->template->load('template_user','user/index', $data);
             
         }

@@ -6,7 +6,7 @@
 			parent::__construct();
 			$this->load->library('form_validation');
 			$this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
-			if($this->session->userdata('isLogin') != 'berhasil'){
+			if($this->session->userdata('Login') != 'berhasil'){
                 redirect('login');
             }   
             $this->user = $this->session->userdata('username');
@@ -15,35 +15,35 @@
                         'heading'   => "Input Data Pariwisata",
                         'title'     => "Input Data Pariwisata Indonesia",
                         'level'     => $this->session->userdata('level'),
-                        'pengguna'  => $this->m_login->dataPengguna($this->user),
+                        'pengguna'  => $this->m_login->data($this->user),
                         'record'    => '',
                     ),
                     'lihat_data'    => array(
                         'heading'   => "Pariwisata",
                         'title'     => "Data Pariwisata Indonesia",
                         'level'     => $this->session->userdata('level'),
-                        'pengguna'  => $this->m_login->dataPengguna($this->user),
+                        'pengguna'  => $this->m_login->data($this->user),
                     ),
                     'form_edit'     => array(
                         
                         'heading'   => "Form Edit Pariwisata",
                         'title'     => "Edit Data Pariwisata Indonesia",
                         'level'     => $this->session->userdata('level'),
-                        'pengguna'  => $this->m_login->dataPengguna($this->user),
+                        'pengguna'  => $this->m_login->data($this->user),
                     ),
                     'input_gallery' => array(
 
                         'heading'   => "Form Gambar Pariwisata",
                         'title'     => "Input Data Gambar Pariwisata",
                         'level'     => $this->session->userdata('level'),
-                        'pengguna'  => $this->m_login->dataPengguna($this->user),
+                        'pengguna'  => $this->m_login->data($this->user),
                     ),
             );
 		}
 		
 		function index(){
 
-			if($this->session->userdata('isLogin') != 'berhasil'){
+			if($this->session->userdata('Login') != 'berhasil'){
                 redirect('login');
         	}else{
             	$this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
@@ -85,11 +85,11 @@
                         'deskripsi'             =>$deskripsi,
                         'id_kota'               =>$nama_kota
                     );
-                    $id      = $this->session->userdata('id');
+                    $id      = $this->session->userdata('id_user');
                     $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
-                        'id'            => $id,
+                        'id_user'       => $id,
                         'aktifitas'     => 'Telah melakukan Input data pada Pariwisata '.$nama_pariwisata.'',
                         'tanggal'       => $date,
 
@@ -150,9 +150,9 @@
                         $id   = $this->input->post('id');
                         $dataarray = array(
 
-                            'nama_img'  => $data['orig_name'],
-                            'full_path' => $data['full_path'],
-                            'id_pariwisata' => $id
+                            'nama_img'          => $data['orig_name'],
+                            'full_path'         => $data['full_path'],
+                            'id_pariwisata'     => $id
                         );
                         $id = $this->input->post('id');
                         $this->m_pariwisata->InputGambar($dataarray);
@@ -181,11 +181,11 @@
                     'nm_pariwisata' => $nm_pariwisata,
                     'deskripsi'     => $deskripsi
                 );
-                $id      = $this->session->userdata('id');
+                $id      = $this->session->userdata('id_user');
                 $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                 $laporan = array(
 
-                    'id'            => $id,
+                    'id_user'       => $id,
                     'aktifitas'     => 'Telah melakukan Update pada Pariwisata '.$nm_pariwisata.'',
                     'tanggal'       => $date,
 
@@ -212,11 +212,11 @@
             foreach ($hasil->result() as $h) {
                 $nm_pariwisata = $h->nm_pariwisata;
             }
-            $id1     = $this->session->userdata('id');
+            $id1     = $this->session->userdata('id_user');
             $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
             $laporan = array(
 
-                'id'            => $id1,
+                'id_user'            => $id1,
                 'aktifitas'     => 'Telah melakukan Delete pada Pariwisata '.$nm_pariwisata.'',
                 'tanggal'       => $date,
 

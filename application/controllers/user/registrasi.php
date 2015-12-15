@@ -5,7 +5,7 @@ class Registrasi extends CI_Controller{
 	public function __construct(){
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model(array('m_register','m_login_user'));
+        $this->load->model('m_register');
         $this->load->database();
 	}
 
@@ -13,30 +13,8 @@ class Registrasi extends CI_Controller{
 
 		$this->template->load('template_user','d_user/register');
 	}
-
 	function direct(){
-		
-		$this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean');
-        $this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
-        $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
-        if($this->form_validation->run()==FALSE){
-            $this->template->load('template_user','d_user/login_form');
-        }else{
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $cek 	  = $this->m_login_user->getPengguna($username, $password);
-
-            if($cek->num_rows() == 1){
-                foreach ($cek->result() as $c) {
-                    $data_user['Login']       = 'berhasil';
-                    $data_user['username']    = $c->username;
-                    $data_user['id_user']     = $c->id_user;
-                    $data_user['nama']        = $c->nama;
-                    $this->session->set_userdata($data_user);
-                }
-                redirect('user/home');
-            }
-        }
+		$this->template->load('template_user','d_user/login_form');
 	}
 	public function InputData(){
 
@@ -46,6 +24,8 @@ class Registrasi extends CI_Controller{
 		$this->form_validation->set_rules('email', 'Alamat Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
 		$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('jenis_kel', 'Jenis Kelamin', 'trim|required');
 		
 		if($this->form_validation->run()==FALSE){
 			$this->index();
@@ -54,16 +34,25 @@ class Registrasi extends CI_Controller{
 			$username 	=$this->input->post('username');
 			$email 		=$this->input->post('email');
 			$password 	=$this->input->post('password');
+			$jenis 		= $this->input->post('jenis_kel');
+			$alamat 	= $this->input->post('alamat');
 			
 			$data=array(
 				'nama'		=>$nama,
 				'username'	=>$username,
 				'email'		=>$email,
 				'password'	=>md5($password),
-				'foto'		=>'default.png'
+				'foto'		=>'default.png',
+				'active'	=> '0',
+				'jenis_kel'	=> $jenis,
+				'alamat'	=> $alamat
 				);
-			$id=$this->m_register->register($data);
-			$encrypted_id = md5($id);
+			$this->m_register->register($data);
+			$hasil = $this->m_register->panggildata($username);
+			foreach ($hasil->result() as $h) {
+				$data['id']	= $h->id_user;
+			}
+			$encrypted_id = md5($data['id']);
 			$this->load->library('email');
 			$config = array();
 			$config['charset'] 		= 'utf-8';
@@ -72,7 +61,7 @@ class Registrasi extends CI_Controller{
 			$config['mailtype']		= "html";
 			$config['smtp_host']	= "ssl://pinwheel.indowebsite.net";
 			$config['smtp_port']	= "465";
-			$config['smtp_timeout']	= "10";
+			$config['smtp_timeout']	= "1";
 			$config['smtp_user']	= "noreply@kwproject.web.id"; 
 			$config['smtp_pass']	= "kwproject12";
 			$config['crlf']			="\r\n"; 
@@ -83,11 +72,28 @@ class Registrasi extends CI_Controller{
 			$this->email->from($config['smtp_user'],'KW Project');
 			$this->email->to($email);
 			$this->email->subject("Verifikasi Akun");
-			$this->email->message("terimakasih telah melakuan registrasi");
+			$this->email->message("Terimakasih telah melakuan Registrasi, Silahkan Aktivasi akun Anda.".
+			site_url("user/registrasi/verification/$encrypted_id")
+				);
 			$this->email->send();
 			
-			$this->direct();
+			echo " <script>
+	                   alert('Pendaftaran sukses, silahkan cek email dan aktivasi akun Anda.');
+                   </script>";
+            $data['title']="Dashboard User Pariwisata Indonesia";
+            $this->load->model('m_login');
+            $user = $this->session->userdata('username');       
+            $data['pengguna'] = $this->m_login->data($user);
+            $this->template->load('template_user','success',$data);
 		}
+	}
+	public function verification($key){
+		$this->m_register->changeActiveState($key);
+		echo " <script>
+                    alert('Selamat Akun Anda telah di Aktivasi <br>
+                    Login dengan username dan password yang tadi telah dibuat');
+               </script>";
+		$this->direct();
 	}
 }
 

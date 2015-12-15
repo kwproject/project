@@ -8,13 +8,13 @@ class C_aktifitas extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model(array('m_login','m_history'));
-		if ($this->session->userdata('isLogin') != 'berhasil') {
+		if ($this->session->userdata('Login') != 'berhasil') {
 
 			redirect('login');
 		}
 
 		$this->user 	= $this->session->userdata('username');
-		$this->id_user	= $this->session->userdata('id');
+		$this->id_user	= $this->session->userdata('id_user');
 
 		$this->data = array(
 
@@ -22,13 +22,13 @@ class C_aktifitas extends CI_Controller {
                             'heading1'		=> 'Aktifitas',
                             'heading2'		=> 'Rekomendasi User',
                             'heading3'		=> 'Aktifitas Admin',
-                            'title'		=> 'History',
-                            'pengguna'		=> $this->m_login->dataPengguna($this->user),
+                            'title'		    => 'History',
+                            'pengguna'		=> $this->m_login->data($this->user),
 			),
                         'lihat_rekomendasi'	=> array(
-                                'heading'	=> 'Rekomedasi',
-                                'title'		=> 'Rekomedasi',
-                                'pengguna'	=> $this->m_login->dataPengguna($this->user),
+                            'heading'	=> 'Rekomedasi',
+                            'title'		=> 'Rekomedasi',
+                            'pengguna'	=> $this->m_login->data($this->user),
                         ),
 		);
 	}
@@ -43,24 +43,24 @@ class C_aktifitas extends CI_Controller {
         
         public function eksekusi(){
             if(isset($_POST['terima'])){
-                $id_user    = $this->input->post('id_user');
-                $username   = $this->input->post('username');
-                $kota       = $this->input->post('id_kota');  
-                $provinsi   = $this->input->post('id_prov');  
-                $jenis      = $this->input->post('id_jenis'); 
+                $id_user         = $this->input->post('id_user');
+                $username        = $this->input->post('username');
+                $kota            = $this->input->post('id_kota');  
+                $provinsi        = $this->input->post('id_prov');  
+                $jenis           = $this->input->post('id_jenis'); 
                 $nama_pariwisata = $this->input->post('nama_paris');
-                $deskripsi  = $this->input->post('deskripsi');
-                $id         = $this->input->post('id');
+                $deskripsi       = $this->input->post('deskripsi');
+                $id              = $this->input->post('id_user');
                 $data = array(
                     'update'        => array(
                         'status'    => '1'
                     ),
                     'kirim'         => array(
-                        'nm_pariwisata' => $nama_pariwisata,
-                        'deskripsi'     => $deskripsi,
-                        'id_kota'       => $kota,
+                        'nm_pariwisata'         => $nama_pariwisata,
+                        'deskripsi'             => $deskripsi,
+                        'id_kota'               => $kota,
                         'id_jenis_pariwisata'   => $jenis,
-                        'id_prov'       => $provinsi
+                        'id_prov'               => $provinsi
                     ),
                     'pesan'         => array(
                        'id_user'    => $id_user,
@@ -69,11 +69,11 @@ class C_aktifitas extends CI_Controller {
                     
                 );
                 $laporan = array(
-                        'id'            => $this->session->userdata('id'),
+                        'id_user'       => $this->session->userdata('id_user'),
                         'aktifitas'     => 'Telah melakukan proses penerimaan rekomendasi dari '.$username.'dengan pariwisata '.$nama_pariwisata.'',
                         'tanggal'       => gmdate("Y-m-d H:i:s", time()+60*60*7),
                 );
-                $this->m_history->updateStatus($data,$id);
+                $this->m_history->updateStatus($data,$id_user);
                 $this->m_history->inputAktifitas($laporan);
                 $this->m_history->inputPariwisata($data);
                 $this->m_history->inputPesan($data);
@@ -94,7 +94,7 @@ class C_aktifitas extends CI_Controller {
                     ),  
                 );
                 $laporan = array(
-                    'id'            => $this->session->userdata('id'),
+                    'id_user'       => $this->session->userdata('id_user'),
                     'aktifitas'     => 'Telah melakukan proses penolakan rekomendasi dari '.$username.'dengan pariwisata '.$nama_pariwisata.'',
                     'tanggal'       => gmdate("Y-m-d H:i:s", time()+60*60*7),
                 );

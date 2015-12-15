@@ -1,30 +1,39 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
-class M_login extends CI_Model{
+    class M_login extends CI_Model{
 
-        public $table = 'admin';
+        public $table = 'user';
         public function __construct(){
 
         }
 
-        public function ambilPengguna($username, $password, $status){
-                $this->db->select('*');
-            $this->db->from($this->table);
+        public function getPengguna($username, $password){
+            $this->db->select('*');
+            $this->db->from('user');
             $this->db->where('username', $username);
             $this->db->where('password', $password);
-            $this->db->where('status', $status);
             $query = $this->db->get();
-        return $query;
+            return $query;
         }
 
-        public function dataPengguna($username){
-        $this->db->select('*');
-        $this->db->where('username', $username);
-        $query = $this->db->get($this->table);
-        return $query->row();
+        public function data($username){
+            $this->db->select('*');
+            $this->db->where('username', $username);
+            $query = $this->db->get('user');
+            return $query->row();
         }
         
-        function inputRegis($data){
-            
-            $this->db->insert($this->table, $data);
+        function ambilData($id_user){
+
+            $this->db->select('*');
+            $this->db->where('id_user',$id_user);
+            $this->db->from('user');
+            return $query = $this->db->get();
+
         }
-}
+        
+        function updateProfile($data,$id_user){
+            
+            $this->db->where('id_user',$id_user);
+            $this->db->update('user',$data);
+        }
+    }

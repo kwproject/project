@@ -17,8 +17,8 @@ class M_history extends CI_Model {
 	public function ambilData(){
 
 		$query = "	SELECT a.aktifitas, a.tanggal, ad.username 
-					FROM aktifitas as a, admin as ad 
-					WHERE a.id = ad.id
+					FROM aktifitas as a, user as ad 
+					WHERE a.id_user = ad.id_user
 					ORDER BY a.tanggal DESC";
 		return $this->db->query($query);
 	}
@@ -31,18 +31,18 @@ class M_history extends CI_Model {
             return $this->db->query($query);
         }
         
-        public function lihat_rekomendasi($id){
+        public function lihat_rekomendasi($id_user){
             
             $query =    "SELECT r.id_rekomendasi, r.nama_pariwisata, u.id_user, r.id_prov, r.id_kota, r.id_jenis_pariwisata, u.username, jp.nama_jenis, k.nm_kota, p.nm_prov, r.deskripsi, r.tanggal
                         FROM rekomendasi as r, user as u, jenis_pariwisata as jp, kota as k, provinsi as p
-                        WHERE r.id_user = u.id_user and r.id_kota = k.id_kota and r.id_prov = p.id_prov and r.id_jenis_pariwisata = jp.id_jenis_pariwisata and r.id_rekomendasi = ".$id."";
+                        WHERE r.id_user = u.id_user and r.id_kota = k.id_kota and r.id_prov = p.id_prov and r.id_jenis_pariwisata = jp.id_jenis_pariwisata and r.id_rekomendasi = ".$id_user."";
             return $this->db->query($query);
         }
         
         
-        public function updateStatus($data,$id){
+        public function updateStatus($data,$id_user){
             
-            $this->db->where('id_rekomendasi',$id);
+            $this->db->where('id_rekomendasi',$id_user);
             $this->db->update('rekomendasi',$data['update']);
         }
         

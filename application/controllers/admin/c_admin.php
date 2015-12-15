@@ -8,18 +8,18 @@ class C_admin extends CI_Controller {
              $this->load->library('upload');
              $this->load->library('form_validation');
             $this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_admin'));
-            if($this->session->userdata('isLogin') != 'berhasil'){
+            if($this->session->userdata('Login') != 'berhasil'){
                 redirect('login');
             }   
             $this->user 		= $this->session->userdata('username');
-            $this->id_user 		= $this->session->userdata('id');
+            $this->id_user 		= $this->session->userdata('id_user');
             $this->data = array(
 
                     'profile' => array(
                         'title'     => "Setting Profiles",
                         'heading'   => "Profile",
                         'level'     => $this->session->userdata('level'),
-                        'pengguna'  => $this->m_login->dataPengguna($this->user),
+                        'pengguna'  => $this->m_login->data($this->user),
                     ),
             );
     }
@@ -33,15 +33,15 @@ class C_admin extends CI_Controller {
     }
     public function index()
     {
-            $id = $this->session->userdata('id');
+            $id = $this->session->userdata('id_user');
             $this->data['profile']['record'] = $this->m_admin->ambilData($id);
-            $this->template->load('template','admin/user/profile',$this->data['profile']);
+            $this->template->load('template','admin/admin/profile',$this->data['profile']);
     }
     
     function updateProfile(){
         
         if (isset($_POST['submit'])) {
-            $id             = $this->session->userdata('id');
+            $id             = $this->session->userdata('id_user');
             $nama           = $this->input->post('nama');
             $email          = $this->input->post('email');
             $alamat         = $this->input->post('alamat');
@@ -75,7 +75,7 @@ class C_admin extends CI_Controller {
             $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
             $laporan = array(
 
-                'id'            => $id,
+                'id_user'            => $id,
                 'aktifitas'     => 'Telah melakukan Update pada Profilenya',
                 'tanggal'       => $date,
 
@@ -90,14 +90,14 @@ class C_admin extends CI_Controller {
             $this->load->model('m_login');
             $user = $this->session->userdata('username');
             $data['level'] = $this->session->userdata('level');        
-            $data['pengguna'] = $this->m_login->dataPengguna($user);
+            $data['pengguna'] = $this->m_login->data($user);
             $this->template->load('template','admin/dashboard/dashboard', $data);
             
         } else {
             
-            $id = $this->session->userdata('id');
+            $id = $this->session->userdata('id_user');
             $this->data['profile']['record'] = $this->m_admin->ambilData($id);
-            $this->template->load('template','admin/user/profile',$this->data['profile']);
+            $this->template->load('template','admin/admin/profile',$this->data['profile']);
         }
     }
 }

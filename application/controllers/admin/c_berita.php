@@ -9,7 +9,7 @@ class C_berita extends CI_Controller {
         $this->load->library('upload');
         $this->load->library('form_validation');
         $this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_berita'));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-        if($this->session->userdata('isLogin') != 'berhasil'){
+        if($this->session->userdata('Login') != 'berhasil'){
             redirect('login');
         }
         $this->user = $this->session->userdata('username');
@@ -20,21 +20,21 @@ class C_berita extends CI_Controller {
                 'heading'   => "Data Berita",
                 'title'     => "Berita",
                 'level'     => $this->session->userdata('level'),
-                'pengguna'  => $this->m_login->dataPengguna($this->user)
+                'pengguna'  => $this->m_login->data($this->user)
             ),
             'input_data'    => array(
 
                 'heading'   => "Input Data Berita",
                 'title'     => "Berita",
                 'level'     => $this->session->userdata('level'),
-                'pengguna'  => $this->m_login->dataPengguna($this->user),
+                'pengguna'  => $this->m_login->data($this->user),
             ),
             'form_edit'     => array(
                 
                 'heading'   => "Edit Data Berita",
                 'title'     => "Berita",
                 'level'     => $this->session->userdata('level'),
-                'pengguna'  => $this->m_login->dataPengguna($this->user),
+                'pengguna'  => $this->m_login->data($this->user),
             )
         );   
     }
@@ -104,11 +104,11 @@ class C_berita extends CI_Controller {
                         'foto_berita'       => $file_name,
                         'tanggal'           => $date
                     );
-                    $id      = $this->session->userdata('id');
+                    $id      = $this->session->userdata('id_user');
                     $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
-                        'id'            => $id,
+                        'id_user'            => $id,
                         'aktifitas'     => 'Telah melakukan input data berita dengan judul  '.$judul.'',
                         'tanggal'       => $date,
 
@@ -190,11 +190,11 @@ class C_berita extends CI_Controller {
                     );
 
                 }
-                    $id      = $this->session->userdata('id');
+                    $id      = $this->session->userdata('id_user');
                     $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
-                        'id'            => $id,
+                        'id_user'       => $id,
                         'aktifitas'     => 'Telah melakukan Update data Berita dijudul '.$judul.'',
                         'tanggal'       => $date,
 
@@ -223,10 +223,10 @@ class C_berita extends CI_Controller {
            $judul = $h->judul_berita;
         }
         $date       = gmdate("Y-m-d H:i:s", time()+60*60*7);
-        $id1        = $this->session->userdata('id');   
+        $id1        = $this->session->userdata('id_user');   
         $laporan    = array(
 
-            'id'            => $id1,
+            'id_user'       => $id1,
             'aktifitas'     => 'Telah melakukan Update data Berita dijudul '.$judul.'',
             'tanggal'       => $date,
 

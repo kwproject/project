@@ -11,7 +11,7 @@
             </div>
 
           <div class="card-panel">
-            <?php echo form_open('user/login/login_form') ?>
+            <?php echo form_open('login/login_form') ?>
             <div class="row">
               <div class="input-field col s8 push-s2">
                 <input name="username" type="text" class="validate teal-text text-darken-5"required="true" onfocus="this.value = '';" 
