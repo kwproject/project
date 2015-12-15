@@ -17,14 +17,14 @@
                         'title'     => "Input Data Pariwisata Indonesia",
                         'pengguna'  => $this->m_login_user->data($this->user),
                         'record'    => '',
-                        'count'     => count($this->m_user->countPesan($this->id)),
+                        'count'     => $this->m_user->countPesan($this->id)->num_rows(),
                     ),
                     'lihat_pesan'   => array(
                         
                         'heading'   => "Pesan",
                         'title'     => "Pesan",
                         'pengguna'  => $this->m_login_user->data($this->user),
-                        'count'     => count($this->m_user->countPesan($this->id)),
+                        'count'     => $this->m_user->countPesan($this->id)->num_rows(),
                     ),
             );
         }

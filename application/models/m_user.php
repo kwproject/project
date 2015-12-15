@@ -26,9 +26,9 @@ class M_user extends CI_Model {
             
     }
     
-    function countPesan($id){
+    function countPesan($id_user){
         
-        $this->db->where('id_user',$id);
+        $this->db->where('id_user',$id_user);
         $this->db->select('*');
         $this->db->from('pesan');
         return $this->db->get();

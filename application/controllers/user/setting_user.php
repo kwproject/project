@@ -10,15 +10,15 @@
             }
             $this->user         = $this->session->userdata('username');
             $this->id_user      = $this->session->userdata('id_user');
-                    $this->data = array(
+            $this->data = array(
 
-                            'profile'   => array(
-                            'title'     => "Setting Profiles",
-                            'heading'   => "Profile",
-                            'pengguna'  => $this->m_login_user->data($this->user),
-                            'count'     => count($this->m_user->countPesan($this->id_user)),   
-                            ),
-                    );
+                    'profile'   => array(
+                        'title'     => "Setting Profiles",
+                        'heading'   => "Profile",
+                        'pengguna'  => $this->m_login_user->data($this->user),
+                        'count'     => $this->m_user->countPesan($this->id_user)->num_rows(),
+                    ),
+            );
         }
         private function setup_upload_option(){
 
@@ -30,6 +30,7 @@
         }
         public function index()
         {
+
             $id_user = $this->session->userdata('id_user');
             $this->data['profile']['record']= $this->m_login_user->ambilData($id_user);
             $this->template->load('dashboard_user','d_user/profile',$this->data['profile']);
