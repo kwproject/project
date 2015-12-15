@@ -5,10 +5,11 @@
         public function __construct(){
             parent::__construct();
             $this->load->library('form_validation');
-            $this->load->model(array('m_login_user','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
+            $this->load->model(array('m_user','m_login_user','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
             if($this->session->userdata('Login') == 'login'){
                 redirect('user/login/login_form');
-            }   
+            }
+            $this->id   = $this->session->userdata('id_user');
             $this->user = $this->session->userdata('username');
             $this->data = array(
                     'input_data'    => array(
@@ -16,17 +17,14 @@
                         'title'     => "Input Data Pariwisata Indonesia",
                         'pengguna'  => $this->m_login_user->data($this->user),
                         'record'    => '',
+                        'count'     => count($this->m_user->countPesan($this->id)),
                     ),
-                    'lihat_data'    => array(
-                        'heading'   => "Pariwisata",
-                        'title'     => "Data Pariwisata Indonesia",
-                        'pengguna'  => $this->m_login_user->data($this->user),
-                    ),
-                    'form_edit'     => array(
+                    'lihat_pesan'   => array(
                         
-                        'heading'   => "Form Edit Pariwisata",
-                        'title'     => "Edit Data Pariwisata Indonesia",
+                        'heading'   => "Pesan",
+                        'title'     => "Pesan",
                         'pengguna'  => $this->m_login_user->data($this->user),
+                        'count'     => count($this->m_user->countPesan($this->id)),
                     ),
             );
         }
@@ -205,6 +203,13 @@
             $this->data['input_gallery']['gambar'] = $this->m_pariwisata->AmbilGambar($id);
             $this->data['input_gallery']['record'] = $this->m_pariwisata->AmbilDataGambar($id);
             $this->template->load('dashboard_user','d_user/pariwisata/input_gallery',$this->data['input_gallery']);
+            
+        }
+        
+        function pesan(){
+            
+            $this->data['lihat_pesan']['record'] = $this->m_user->countPesan($this->id);
+            $this->template->load('dashboard_user','d_user/pariwisata/lihat_pesan',$this->data['lihat_pesan']);
             
         }
     }

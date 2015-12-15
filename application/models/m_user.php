@@ -25,6 +25,15 @@ class M_user extends CI_Model {
         $this->db->update('user',$data);
             
     }
+    
+    function countPesan($id){
+        
+        $this->db->where('id_user',$id);
+        $this->db->select('*');
+        $this->db->from('pesan');
+        return $this->db->get();
+        
+    }
 
 }
 

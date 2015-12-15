@@ -89,6 +89,9 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url('user/c_pariwisata/pesan'); ?>"><i class="glyphicon glyphicon-home"></i> Pesan  <span class="badge"><?php echo $count; ?></span></a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

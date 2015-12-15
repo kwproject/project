@@ -64,7 +64,7 @@ class C_aktifitas extends CI_Controller {
                     ),
                     'pesan'         => array(
                        'id_user'    => $id_user,
-                       'isi_pesan' => 'Rekomendasi anda yang bernama '.$nama_pariwisata.'sudah kami terima, Terima Kasih atas kerjasamanya ', 
+                       'isi_pesan' => 'Rekomendasi anda yang bernama '.$nama_pariwisata.' sudah kami terima, Terima Kasih atas kerjasamanya ', 
                     ),
                     
                 );
@@ -77,17 +77,37 @@ class C_aktifitas extends CI_Controller {
                 $this->m_history->inputAktifitas($laporan);
                 $this->m_history->inputPariwisata($data);
                 $this->m_history->inputPesan($data);
-                echo "<script>
+                echo "  <script>
                             alert('Berhasil Menerima')
                         </script>";
                 $this->index();
                 
             }  elseif (isset($_POST['tolak'])) {
                     
-                
+                $data = array(
+                    'update'        => array(
+                        'status'    => '2'
+                    ),
+                    'pesan'         => array(
+                       'id_user'    => $id_user,
+                       'isi_pesan' => 'Rekomendasi anda yang bernama '.$nama_pariwisata.' kami tidak terima, Terima Kasih atas kerjasamanya ', 
+                    ),  
+                );
+                $laporan = array(
+                    'id'            => $this->session->userdata('id'),
+                    'aktifitas'     => 'Telah melakukan proses penolakan rekomendasi dari '.$username.'dengan pariwisata '.$nama_pariwisata.'',
+                    'tanggal'       => gmdate("Y-m-d H:i:s", time()+60*60*7),
+                );
+                $this->m_history->updateStatus($data,$id);
+                $this->m_history->inputAktifitas($laporan);
+                $this->m_history->inputPesan($data);
+                echo "  <script>
+                            alert('Berhasil Menolak')
+                        </script>";
+                $this->index();
                     
             }else{
-                echo "gagal";
+                $this->index();
             }
         }
         

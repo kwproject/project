@@ -4,7 +4,7 @@
             parent::__construct();
              $this->load->library(array('session','upload'));
              $this->load->library('form_validation');
-            $this->load->model('m_login_user');
+            $this->load->model(array('m_user','m_login_user'));
             if($this->session->userdata('Login') != 'berhasil'){
                 redirect('user/login/login_form');
             }
@@ -16,6 +16,7 @@
                             'title'     => "Setting Profiles",
                             'heading'   => "Profile",
                             'pengguna'  => $this->m_login_user->data($this->user),
+                            'count'     => count($this->m_user->countPesan($this->id_user)),   
                             ),
                     );
         }
