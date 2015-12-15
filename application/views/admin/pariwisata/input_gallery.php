@@ -5,6 +5,7 @@
     <div class="panel-body">
         <div class="col-md-offset-1 col-md-10">
             <div class="form-horizontal">
+                <?php echo form_open_multipart('admin/c_pariwisata/InputGambar'); ?>
                 <?php foreach ($record->result() as $r) { ?>
                 <div class="form-group">
                         <label class="col-md-2 " >Nama Pariwisata</label>
@@ -36,7 +37,7 @@
                                 <p class="text-capitalize"><?php echo $r->nm_kota ?></p>
                         </div>
                 </div>
-                <input type="hidden" value="<?php echo $r->id_pariwisata ?>" name="id">
+                
             </div>
         </div>
     </div>
@@ -46,14 +47,13 @@
 	<div class="panel-heading">
 		<div class="panel-title">Gambar</div>
 	</div>
-	<?php echo form_open_multipart('admin/c_pariwisata/InputGambar'); ?>
-	<input type="hidden" name="id" value="<?php echo $r->id_pariwisata ?>">
 	<?php } ?>
 	<div class="panel-body">
 		<label class="col-md-2">Input Gambar</label>
 		<div class="col-md-10">
 			<input type="file" name="userfile"  required="TRUE"><br><input type="submit" class="btn btn-primary" name="submit">
 		</div>
+                
 	
 	<div class="container">
 		<hr>

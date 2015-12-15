@@ -28,7 +28,7 @@
                                 <td><center>$no</center></td>
                                 <td><center>$r->nm_pariwisata</center></td>
                                 <td><center>$r->nama_jenis</center></td>
-                                <td><center>$r->deskripsi</center></td>
+                                <td><center>".substr($r->deskripsi,0, 20)."</center></td>
                                 <td><center>$r->nm_prov</center></td>
                                 <td><center>$r->nm_kota</center></td>
                                 <td><center><a class='btn btn-primary' href='".base_url('admin/c_pariwisata/InputGambar/'.$r->id_pariwisata)."'><span class='glyphicon glyphicon-picture'></span> </a></center></td>

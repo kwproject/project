@@ -79,7 +79,7 @@
         }
         function AmbilGambar($id){
 
-        	$query = "	SELECT nama_img, id_img
+        	$query = "	SELECT nama_img, id_img,id_pariwisata
 						FROM `image` 
 						WHERE id_pariwisata = '$id'";
         	return $this->db->query($query);
@@ -87,14 +87,14 @@
 
         function delete($id){
 
-        	$this->db->where('id_pariwisata',$id);
+            $this->db->where('id_pariwisata',$id);
             $this->db->delete('pariwisata');
         }
 
-        function deleteGambar($id){
+        function deleteGambar($id_gambar){
 
-        	$this->db->where('id_img',$id);
-            $this->db->delete('image');
+        	$this->db->where('id_img',$id_gambar);
+                $this->db->delete('image');
         }
         
         function InputRekomendasi($rekomen){

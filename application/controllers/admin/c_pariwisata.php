@@ -230,18 +230,11 @@
 
          function deleteGambar(){
 
-            $id = $this->uri->segment(4);
-            $delete = $this->m_pariwisata->delete($id);
-            $id = $this->input->post('id');
-            $this->data['input_gallery']['gambar'] = $this->m_pariwisata->AmbilGambar($id);
-            $this->data['input_gallery']['record'] = $this->m_pariwisata->AmbilDataGambar($id);
-            $this->template->load('template','admin/pariwisata/input_gallery',$this->data['input_gallery']);
-            
-        }
-
-
-
-
+            $id_gambar = $this->uri->segment(4);
+            $this->m_pariwisata->deleteGambar($id_gambar);
+            echo '  <script>
+                        alert("berhasil menghapus gambar")
+                    </script>';
+            $this->index();
+         }
 	}
-
-?>
