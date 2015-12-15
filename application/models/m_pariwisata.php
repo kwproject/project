@@ -96,4 +96,9 @@
         	$this->db->where('id_img',$id);
             $this->db->delete('image');
         }
-	}
+        
+        function InputRekomendasi($rekomen){
+            
+            $this->db->insert('rekomendasi',$rekomen);
+        }
+}

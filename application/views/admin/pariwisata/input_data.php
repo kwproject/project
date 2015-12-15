@@ -13,7 +13,7 @@
                   <select class="form-control1" name="nama_provinsi" id="provinsi" >
                       <option value="" >Pilih</option>
                         <?php foreach($prov->result() as $prov){
-                            echo '<option value="'.$prov->id_prov.'">'.$prov->nm_prov.'</option>';
+                            echo '<option value='.$prov->id_prov.'>'.$prov->nm_prov.'</option>';
                         } ?>
                   </select>
               </div>

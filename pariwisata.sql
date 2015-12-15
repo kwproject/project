@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2015 at 07:08 PM
+-- Generation Time: Dec 15, 2015 at 03:34 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -66,7 +66,11 @@ CREATE TABLE `aktifitas` (
 
 INSERT INTO `aktifitas` (`id_aktifitas`, `id`, `aktifitas`, `tanggal`) VALUES
 (14, 3, 'Telah melakukan input data berita dengan judul  asdasd', '2015-12-11 18:55:55'),
-(15, 3, 'Telah melakukan input data berita dengan judul  asdasd', '2015-12-12 01:04:16');
+(15, 3, 'Telah melakukan input data berita dengan judul  asdasd', '2015-12-12 01:04:16'),
+(16, 3, 'Telah melakukan Update data Berita dijudul naruto mati', '2015-12-14 17:34:58'),
+(17, 3, 'Telah melakukan Update data Berita dijudul asdasd', '2015-12-14 17:35:01'),
+(20, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata ASDASD', '2015-12-14 22:48:13'),
+(23, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata kmenamas aja d adahsd', '2015-12-14 23:34:51');
 
 -- --------------------------------------------------------
 
@@ -87,9 +91,7 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `foto_berita`, `tanggal`) VALUES
-(5, 'naruto mati', 'masa bodoooasdad', 'Screenshot_5.png', '2015-12-10 03:21:58'),
-(7, 'asdasd', 'asdasdasd', 'closeupgaben1.jpg', '2015-12-11 18:54:09'),
-(8, 'asdasd', 'asdasdasd', 'closeupgaben1.jpg', '2015-12-11 18:55:55'),
+(8, 'asdasdasda', 'asdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'closeupgaben1.jpg', '2015-12-11 18:55:55'),
 (9, 'asdasd', 'asdasd', 'closeupgaben4.jpg', '2015-12-12 01:04:16');
 
 -- --------------------------------------------------------
@@ -680,7 +682,34 @@ CREATE TABLE `pariwisata` (
 INSERT INTO `pariwisata` (`id_pariwisata`, `nm_pariwisata`, `deskripsi`, `id_kota`, `id_jenis_pariwisata`, `id_prov`) VALUES
 (8, 'kopang', 'asdasdasdasdasd', 78, 2, 4),
 (15, 'ASDASD', 'asdasdads', 143, 1, 10),
-(16, 'ASDASD', 'asdasd', 28, 1, 2);
+(16, 'ASDASD', 'asdasd', 28, 1, 2),
+(17, 'asdasdasd', '<p>asdasdasdasdasd</p>', 25, 2, 2),
+(18, 'ASDASD', '<p>asdasdasd</p>', 59, 1, 3),
+(19, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
+(20, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
+(24, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', 61, 2, 3),
+(25, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', 61, 2, 3),
+(23, 'ASDASD', '<p>asdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>', 3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesan`
+--
+
+CREATE TABLE `pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `isi_pesan` text NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `isi_pesan`, `id_user`) VALUES
+(2, 'Rekomendasi anda yang bernama ASDASDsudah kami terima, Terima Kasih atas kerjasamanya ', 40),
+(4, 'Rekomendasi anda yang bernama kmenamas aja d adahsdsudah kami terima, Terima Kasih atas kerjasamanya ', 40);
 
 -- --------------------------------------------------------
 
@@ -736,6 +765,32 @@ INSERT INTO `provinsi` (`id_prov`, `nm_prov`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rekomendasi`
+--
+
+CREATE TABLE `rekomendasi` (
+  `id_rekomendasi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_kota` int(11) NOT NULL,
+  `id_prov` int(11) NOT NULL,
+  `id_jenis_pariwisata` int(11) NOT NULL,
+  `nama_pariwisata` varchar(25) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rekomendasi`
+--
+
+INSERT INTO `rekomendasi` (`id_rekomendasi`, `id_user`, `id_kota`, `id_prov`, `id_jenis_pariwisata`, `nama_pariwisata`, `deskripsi`, `tanggal`, `status`) VALUES
+(3, 40, 3, 1, 1, 'ASDASD', '<p>asdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>', '2015-12-13 20:33:58', 1),
+(5, 40, 61, 3, 2, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', '2015-12-14 23:34:33', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_lokasi`
 --
 
@@ -775,30 +830,6 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `password`, `foto`) 
 (1, 'Fajar Hidayatullohh', 'fajarhidayatulloh', 'fajarhidayatulloh06@gmail.com', 'c179d41d652bf430d83614eb53f577a0', '10005573_1504820586441178_1804034732_a.jpg'),
 (39, 'Marlina Dwi Jayanti', 'marlina', 'fajarhidayatulloh990@gmail.com', 'c179d41d652bf430d83614eb53f577a0', 'default.png'),
 (40, 'respati', 'respati', 'tyorespati@ymail.com', 'db7fadfdd0385b78e4eda247a11dfa49', 'default.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user2`
---
-
-CREATE TABLE `user2` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `level` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `foto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user2`
---
-
-INSERT INTO `user2` (`id`, `username`, `password`, `nama`, `level`, `status`, `email`, `foto`) VALUES
-(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloaa', 1, 1, 'fajarhidayatulloh06@gmail.com', '10005573_1504820586441178_1804034732_a.jpg');
 
 --
 -- Indexes for dumped tables
@@ -848,10 +879,22 @@ ALTER TABLE `pariwisata`
   ADD PRIMARY KEY (`id_pariwisata`);
 
 --
+-- Indexes for table `pesan`
+--
+ALTER TABLE `pesan`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
 -- Indexes for table `provinsi`
 --
 ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id_prov`);
+
+--
+-- Indexes for table `rekomendasi`
+--
+ALTER TABLE `rekomendasi`
+  ADD PRIMARY KEY (`id_rekomendasi`);
 
 --
 -- Indexes for table `user`
@@ -872,7 +915,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `aktifitas`
 --
 ALTER TABLE `aktifitas`
-  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `berita`
 --
@@ -897,12 +940,22 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT for table `pariwisata`
 --
 ALTER TABLE `pariwisata`
-  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
 ALTER TABLE `provinsi`
   MODIFY `id_prov` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `rekomendasi`
+--
+ALTER TABLE `rekomendasi`
+  MODIFY `id_rekomendasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --

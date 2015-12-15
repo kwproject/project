@@ -33,7 +33,8 @@ class Home extends CI_Controller{
                 $user = $this->session->userdata('username');
                 $this->data['lihat_aktifitas']['level'] = $this->session->userdata('level');        
                 $this->data['lihat_aktifitas']['pengguna'] = $this->m_login->dataPengguna($user);
-                $this->data['lihat_aktifitas']['record']    = $this->m_history->ambilData();
+                $this->data['lihat_aktifitas']['rekomendasi']   = $this->m_history->ambilRekomendasi();
+                $this->data['lihat_aktifitas']['aktifitas']     = $this->m_history->ambilData();
                 $this->template->load('template','admin/history/lihat_aktifitas',$this->data['lihat_aktifitas']);
             }    
         }

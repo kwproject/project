@@ -10,7 +10,16 @@
   <link href="<?php echo base_url();?>assets/css/family.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/style_user.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+  <script type="text/javascript">
+$(document).ready(function(){
+    $("#provinsi").change(function (){
+        var url = "<?php echo site_url('user/c_pariwisata/add_kota');?>/"+$(this).val();
+        $('#kabupaten').load(url);
+        return false;
+    })
+});
+</script>
+</head>
 <body>
 
   <div id="loader-wrapper">
@@ -33,7 +42,7 @@
               <li><a href="<?php echo base_url('user/setting_user') ?>">Profile</a></li>
               <li><a href="<?php echo base_url('user/login/logout') ?>">Logout</a></li>
             </ul>
-            <li><a href="<?php echo base_url('user/login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php echo $pengguna->nama; ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="<?php echo base_url('user/login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
 
           <?php } else { ?>
               <li><a href="<?php echo base_url('user/login'); ?>" class="white-text"><i class="material-icons left">person</i><strong>Masuk | Gabung</strong></a></li>

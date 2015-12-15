@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-tap-highlight" content="no">
-    <title><?php echo $title; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", 
           function() { setTimeout(hideURLbar, 0); }, false); 
           function hideURLbar(){ window.scrollTo(0,1); } 
     </script>
-    <link href="<?php echo base_url();?>assets/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="<?php echo base_url();?>assets/css/family.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="<?php echo base_url();?>assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="<?php echo base_url();?>assets/css/style_dashboard.css" type="text/css" rel="stylesheet" media="screen,projection">
+     <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url();?>assets/css/jquery.dataTables.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url();?>assets/css/style.css" rel='stylesheet' type='text/css' />
     <link href="<?php echo base_url();?>assets/css/font-awesome.css" rel="stylesheet"> 
+    <style>
+        #imagelightbox
+            {
+                position: fixed;
+                z-index: 9999;
+             
+                -ms-touch-action: none;
+                touch-action: none;
+            }
+    </style>
     
+    <!-- jQuery -->
+    <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/ckeditor/ckeditor.js"></script>
-    <script src="<?php echo base_url();?>assets/js/ckeditor/style.js"></script>
-    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#provinsi").change(function (){
@@ -29,73 +37,75 @@
             })
         });
     </script>
+        
+    <!----webfonts--->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!---//webfonts--->    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url();?>assets/js/jquery.dataTables.js"></script>  
+    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script> 
+    <script src="<?php echo base_url();?>assets/js/imagelightbox.min.js"></script>
 </head>
-
 <body>
-
-    <header id="header" class="page-topbar">
-        <!-- start header nav-->
-        <div class="navbar-fixed">
-            <nav class="cyan">
-                <div class="nav-wrapper">
-                    <h1 class="logo-wrapper"><a href="<?php echo base_url('user/home'); ?>" class="brand-logo darken-1"><h5>TripVisor</h5></a></h1>
+        <title><?php echo $title; ?></title>
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo base_url('user/home'); ?>">TripVisor</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="dropdown">
+                   
+                    <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                        <img src="<?php echo base_url('uploads/user/'.$pengguna->foto);?>" alt=""/><?php echo $pengguna->nama; ?></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-menu-header text-center">
+                            <strong>Account</strong>
+                        </li>
+                        <li class="m_2"><a href="<?php echo base_url('user/login/logout'); ?>"><i class="fa fa-lock"></i> Logout</a></li>   
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="<?php echo base_url('user/setting_user'); ?>"><i class="glyphicon glyphicon-home"></i> Dashboard</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><i class="glyphicon glyphicon-globe lg"></i> Pariwisata<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class="li">
+                                    <a href="<?php echo base_url('user/c_pariwisata/InputData') ?>"><i class="glyphicon glyphicon-file"></i> Input Data Rekomendasi</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="graphs">
+                <div class="xs">
+                    <?php echo $contents;?>
+                </div>
+            </div>
         </div>
-    </header>
-    <div id="main">
-        <div class="wrapper">
-            <aside id="left-sidebar-nav">
-                <ul id="slide-out" class="side-nav fixed leftside-navigation" style="width: 340px;">
-                    <li class="user-details cyan darken-2">
-                        <div class="row">
-                            <div class="col col s4 m4 l4">
-                                <img src="<?php echo base_url('uploads/user/'.$pengguna->foto);?>" alt="" class="circle responsive-img valign profile-image">
-                            </div>
-                            <div class="col col s8 m8 l8">
-                                <ul id="profile-dropdown" class="dropdown-content">
-                                    <li>
-                                        <a href="<?php echo base_url('user/login/logout'); ?>"><i class="large material-icons">trending_flat</i> Logout</a>
-                                    </li>
-                                </ul>
-                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $pengguna->nama; ?><i class="large material-icons right right">more_vert</i></a>
-                                <p class="user-roal"><?php echo $pengguna->username; ?></p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="bold"><a href="<?php echo base_url('user/home'); ?>" class="waves-effect waves-cyan"><i class="large material-icons left">home</i> Dashboard</a>
-                    </li>
-                    <li class="no-padding">
-                        <ul class="collapsible collapsible-accordion">
-                            <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="large material-icons left">location_on</i> PARIWISATA</a>
-                                <div class="collapsible-body">
-                                    <ul>
-                                        <li><a href="<?php echo base_url('user/c_pariwisata/InputData'); ?>">Input Data</a>
-                                        </li>                                        
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul> 
-                    </li>
-                </ul>
-                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
-            </aside>
-            <section id="content">
-                    <div class="container">
-                        <?php echo $contents;?>
-                    </div>
-            </section>
-            
-            <aside id="right-sidebar-nav">
-               
-            </aside>
-        </div>
+
     </div>
+
     
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.11.2.min.js"></script> 
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins.js"></script>
     <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
     <!-- Metis Menu Plugin JavaScript -->
     <script src="<?php echo base_url();?>assets/js/metisMenu.min.js"></script>
@@ -109,5 +119,4 @@
 
         </script>
 </body>
-
 </html>

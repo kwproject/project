@@ -3,43 +3,43 @@
         <div class="panel-title"><?php echo $heading ?></div>
     </div>
     <div class="panel-body">
-		<div class="col-md-offset-1 col-md-10">
-		  	<div class="form-horizontal">
-		  	<?php foreach ($record->result() as $r) { ?>
-		      	<div class="form-group">
-		      		<label class="col-md-2 " >Nama Pariwisata</label>
-		          	<div class="col-sm-10">
-	          			<p class="text-capitalize"><?php echo $r->nm_pariwisata ?></p>
-		          	</div>
-		      	</div>
-		      	<div class="form-group">
-		      		<label class="col-md-2 " >Deskripsi</label>
-		          	<div class="col-sm-10">
-		          		<p class="text-capitalize"><?php echo $r->deskripsi ?></p>
-		          	</div>
-		      	</div>
-		      	<div class="form-group">
-		      		<label class="col-md-2 " >Jenis</label>
-		          	<div class="col-sm-10">
-		          		<p class="text-capitalize"><?php echo $r->nama_jenis ?></p>
-		          	</div>
-		      	</div>
-		      	<div class="form-group">
-		      		<label class="col-md-2 " >Nama Provinsi</label>
-		          	<div class="col-sm-10">
-		          		<p class="text-capitalize"><?php echo $r->nm_prov ?></p>
-		          	</div>
-		      	</div>
-		      	<div class="form-group">
-		      		<label class="col-md-2 " >Nama Kota</label>
-		          	<div class="col-sm-10">
-		          		<p class="text-capitalize"><?php echo $r->nm_kota ?></p>
-		          	</div>
-		      	</div>
-		      	<input type="hidden" value="<?php echo $r->id_pariwisata ?>" name="id">
-		    </div>
-		</div>
-	</div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="form-horizontal">
+                <?php foreach ($record->result() as $r) { ?>
+                <div class="form-group">
+                        <label class="col-md-2 " >Nama Pariwisata</label>
+                        <div class="col-sm-10">
+                                <p class="text-capitalize"><?php echo $r->nm_pariwisata ?></p>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 " >Deskripsi</label>
+                        <div class="col-sm-10">
+                                <p class="text-capitalize"><?php echo $r->deskripsi ?></p>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 " >Jenis</label>
+                        <div class="col-sm-10">
+                                <p class="text-capitalize"><?php echo $r->nama_jenis ?></p>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 " >Nama Provinsi</label>
+                        <div class="col-sm-10">
+                                <p class="text-capitalize"><?php echo $r->nm_prov ?></p>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 " >Nama Kota</label>
+                        <div class="col-sm-10">
+                                <p class="text-capitalize"><?php echo $r->nm_kota ?></p>
+                        </div>
+                </div>
+                <input type="hidden" value="<?php echo $r->id_pariwisata ?>" name="id">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="panel panel-primary">

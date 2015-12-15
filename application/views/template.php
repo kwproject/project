@@ -114,6 +114,8 @@
             $(document).ready( function () {
                 $('#example').DataTable();
                 $( 'a' ).imageLightbox();
+                $('#example1').DataTable();
+                $( 'a' ).imageLightbox();
             } );
 
         </script>

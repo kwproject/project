@@ -654,7 +654,7 @@ h5.breadcrumbs-header {
   -o-transform: rotate(90deg);
   /* Opera */
   
-  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);
+  filter: progid DXImageTransform.Microsoft.BasicImage(rotation=3);
   /* Internet Explorer */
 }
 #flight-card .card-content-bg {

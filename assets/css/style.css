@@ -54,7 +54,7 @@ body a{
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.125);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.125);
   padding: 0;
-  background-color: #2B4886;
+  background-color: #337ab7;
 }
 .navbar .navbar-nav li .dropdown-menu:before {
   position: absolute;
@@ -225,7 +225,7 @@ body a{
   font-family: 'Roboto', sans-serif;
 }
 nav.top1.navbar.navbar-default.navbar-static-top {
-  background-color:#2B4886;
+  background-color:#337ab7;
   font-family: 'Roboto', sans-serif;
 }
 .navbar-default .navbar-brand {

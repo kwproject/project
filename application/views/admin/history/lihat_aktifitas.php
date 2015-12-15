@@ -1,56 +1,64 @@
 <div class="panel panel-primary">
-	<div class="panel-heading"><?php echo $heading1; ?></div>
-	<div class="panel-body">
-		<div class="col-md-4">
-		<div class="panel panel-primary">
-			<div class="panel-heading"><?php echo $heading2; ?></div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<div class="table table-bordered">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th></th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								
-							</tr>
-						</tbody>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		<div class="col-md-8">
-		<div class="panel panel-primary">
-			<div class="panel-heading"><?php echo $heading3; ?></div>
-			<div class="panel-body">
-				<table class="display table table-bordered" id="example">
-				<thead>
-					<tr>
-						<th width="10px">No</th>
-						<th>Aktifitas</th>
-						<th>Tanggal</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php $no=1; foreach($record->result() as $r){
+    <div class="panel-heading"><?php echo $heading1; ?></div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><?php echo $heading2; ?></div>
+                <div class="panel-body">
+                    <table class=" display table table-bordered" id="example1">
+                        <thead>
+                            <tr>
+                                <th><center>No</center></th>
+                                <th><center>Nama User Pengirim</center></th>
+                                <th><center>Nama Pariwisata</center></th>
+                                <th><center>Operasi</center></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=1; foreach($rekomendasi->result() as $r){
+                                
+                                echo "<tr>
+                                        <td><center>".$no."</center></td>
+                                        <td><center>".$r->username."</center></td>
+                                        <td><center>".$r->nama_pariwisata."</center></td>
+                                        <td><center>   
+                                            <a class='btn btn-primary' href='".base_url('admin/c_aktifitas/lihat_rekomendasi/'.$r->id_rekomendasi)."'>Lihat</a>  
+                                        </center></td>
+                                    </tr>";
+                                $no++;
+                            } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><?php echo $heading3; ?></div>
+                <div class="panel-body">
+                    <table class="display table table-bordered" id="example">
+                    <thead>
+                            <tr>
+                                <th width="10px"><center>No</center></th>
+                                <th><center>Aktifitas</center></th>
+                                <th><center>Tanggal</center></th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <?php $no=1; foreach($aktifitas->result() as $r){
 
-						echo "<tr>
-								<td>".$no."</td>
-								<td><b>".$r->username."</b> ".$r->aktifitas."</td>
-								<td>".$r->tanggal."</td>
-							</tr>";
+                                echo "<tr>
+                                        <td><center>".$no."</center></td>
+                                        <td><center><b>".$r->username."</b> ".$r->aktifitas."</center></td>
+                                        <td><center>".$r->tanggal."</center></td>
+                                    </tr>";
 
-						$no++;
-					}?>
-				</tbody>
-				</table>
-			</div>
-		</div>
-		</div>
-	</div>
+                                $no++;
+                            }?>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
