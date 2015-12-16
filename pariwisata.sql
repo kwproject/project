@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2015 at 03:34 AM
+-- Generation Time: Dec 16, 2015 at 08:56 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -23,39 +23,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `level` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `alamat` text NOT NULL,
-  `jenis_kel` enum('L','P') NOT NULL,
-  `foto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `username`, `password`, `nama`, `level`, `status`, `email`, `alamat`, `jenis_kel`, `foto`) VALUES
-(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloh', 1, 1, 'fajar@gmail.com', 'Narogong blok E46', 'L', 'closeupgaben11.jpg'),
-(5, 'respati', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloh', 1, 1, 'fajar@gmail.com', 'bogor 12', 'L', 'Screenshot_5.png');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `aktifitas`
 --
 
 CREATE TABLE `aktifitas` (
   `id_aktifitas` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `aktifitas` text NOT NULL,
   `tanggal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -64,7 +37,7 @@ CREATE TABLE `aktifitas` (
 -- Dumping data for table `aktifitas`
 --
 
-INSERT INTO `aktifitas` (`id_aktifitas`, `id`, `aktifitas`, `tanggal`) VALUES
+INSERT INTO `aktifitas` (`id_aktifitas`, `id_user`, `aktifitas`, `tanggal`) VALUES
 (14, 3, 'Telah melakukan input data berita dengan judul  asdasd', '2015-12-11 18:55:55'),
 (15, 3, 'Telah melakukan input data berita dengan judul  asdasd', '2015-12-12 01:04:16'),
 (16, 3, 'Telah melakukan Update data Berita dijudul naruto mati', '2015-12-14 17:34:58'),
@@ -112,13 +85,9 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`id_img`, `nama_img`, `full_path`, `id_pariwisata`) VALUES
-(8, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 9),
-(9, 'Screenshot_5.png', 'C:/xampp/htdocs/kompress/uploads/Screenshot_5.png', 9),
 (12, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
 (13, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
-(14, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
-(15, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 13),
-(16, '4.png', 'C:/xampp/htdocs/kompress/uploads/4.png', 13);
+(14, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -683,8 +652,6 @@ INSERT INTO `pariwisata` (`id_pariwisata`, `nm_pariwisata`, `deskripsi`, `id_kot
 (8, 'kopang', 'asdasdasdasdasd', 78, 2, 4),
 (15, 'ASDASD', 'asdasdads', 143, 1, 10),
 (16, 'ASDASD', 'asdasd', 28, 1, 2),
-(17, 'asdasdasd', '<p>asdasdasdasdasd</p>', 25, 2, 2),
-(18, 'ASDASD', '<p>asdasdasd</p>', 59, 1, 3),
 (19, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
 (20, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
 (24, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', 61, 2, 3),
@@ -815,10 +782,14 @@ INSERT INTO `tbl_lokasi` (`nama_lokasi`, `latitude`, `longitude`) VALUES
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `level` int(11) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `active` int(11) NOT NULL,
+  `alamat` text NOT NULL,
+  `jenis_kel` enum('L','P') NOT NULL,
   `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -826,20 +797,15 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `password`, `foto`) VALUES
-(1, 'Fajar Hidayatullohh', 'fajarhidayatulloh', 'fajarhidayatulloh06@gmail.com', 'c179d41d652bf430d83614eb53f577a0', '10005573_1504820586441178_1804034732_a.jpg'),
-(39, 'Marlina Dwi Jayanti', 'marlina', 'fajarhidayatulloh990@gmail.com', 'c179d41d652bf430d83614eb53f577a0', 'default.png'),
-(40, 'respati', 'respati', 'tyorespati@ymail.com', 'db7fadfdd0385b78e4eda247a11dfa49', 'default.png');
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `level`, `email`, `active`, `alamat`, `jenis_kel`, `foto`) VALUES
+(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloh', 1, 'fajar@gmail.com', 0, 'Narogong blok E46', 'L', 'default.png'),
+(23, 'brontox', 'db7fadfdd0385b78e4eda247a11dfa49', 'respati tri susetyo12', 0, 'tyorespati@gmail.com', 1, 'narogong', 'L', 'default.png'),
+(30, 'jojo12', 'db7fadfdd0385b78e4eda247a11dfa49', 'respati tri susetyo', 0, 'tyorespati@ymail.com', 0, 'narogong jaya 9A', 'L', 'default.png'),
+(31, 'jasdjasd', 'db7fadfdd0385b78e4eda247a11dfa49', 'koplak', 0, 'tyorespati@gmail.com', 1, 'asdasdasd', 'L', 'default.png');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `aktifitas`
@@ -907,11 +873,6 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
 -- AUTO_INCREMENT for table `aktifitas`
 --
 ALTER TABLE `aktifitas`
@@ -925,7 +886,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `jenis_pariwisata`
 --
@@ -960,7 +921,7 @@ ALTER TABLE `rekomendasi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- Constraints for dumped tables
 --

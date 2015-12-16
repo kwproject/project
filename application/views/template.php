@@ -84,10 +84,9 @@
                         <li>
                             <a href="<?php echo base_url('admin/c_pariwisata/LihatData'); ?>"><i class="fa fa-envelope nav_icon"></i>Pariwisata</a>
                         </li>
-                         <li>
+                        <li>
                             <a href="<?php echo base_url('admin/c_berita'); ?>"><i class="fa fa-check-square-o nav_icon"></i>Berita</a>     
                         </li>
-                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
