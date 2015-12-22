@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2015 at 08:56 AM
+-- Generation Time: Dec 22, 2015 at 03:48 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -43,7 +43,10 @@ INSERT INTO `aktifitas` (`id_aktifitas`, `id_user`, `aktifitas`, `tanggal`) VALU
 (16, 3, 'Telah melakukan Update data Berita dijudul naruto mati', '2015-12-14 17:34:58'),
 (17, 3, 'Telah melakukan Update data Berita dijudul asdasd', '2015-12-14 17:35:01'),
 (20, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata ASDASD', '2015-12-14 22:48:13'),
-(23, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata kmenamas aja d adahsd', '2015-12-14 23:34:51');
+(23, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata kmenamas aja d adahsd', '2015-12-14 23:34:51'),
+(24, 3, 'Telah melakukan input data berita dengan judul  naruto mati', '2015-12-18 13:20:40'),
+(25, 3, 'Telah melakukan input data berita dengan judul  asda[psajfjji', '2015-12-18 13:20:55'),
+(26, 3, 'Telah menghapus kontak', '2015-12-22 21:33:49');
 
 -- --------------------------------------------------------
 
@@ -65,7 +68,22 @@ CREATE TABLE `berita` (
 
 INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `foto_berita`, `tanggal`) VALUES
 (8, 'asdasdasda', 'asdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'closeupgaben1.jpg', '2015-12-11 18:55:55'),
-(9, 'asdasd', 'asdasd', 'closeupgaben4.jpg', '2015-12-12 01:04:16');
+(9, 'asdasd', 'asdasd', 'closeupgaben4.jpg', '2015-12-12 01:04:16'),
+(10, 'naruto mati', 'gini nih asdasdasdasd', 'closeupgaben12.jpg', '2015-12-18 13:20:40'),
+(11, 'asda[psajfjji', 'uiasdh9asfhas0faj9sfj0an0sfj', 'closeupgaben7.jpg', '2015-12-18 13:20:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_contact` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -632,6 +650,18 @@ INSERT INTO `kota` (`id_kota`, `nm_kota`, `id_prov`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kritik_saran`
+--
+
+CREATE TABLE `kritik_saran` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pariwisata`
 --
 
@@ -798,7 +828,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `level`, `email`, `active`, `alamat`, `jenis_kel`, `foto`) VALUES
-(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloh', 1, 'fajar@gmail.com', 0, 'Narogong blok E46', 'L', 'default.png'),
+(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Fajar Hidayatulloh', 1, 'fajar@gmail.com', 1, 'Narogong blok E46', 'L', 'default.png'),
 (23, 'brontox', 'db7fadfdd0385b78e4eda247a11dfa49', 'respati tri susetyo12', 0, 'tyorespati@gmail.com', 1, 'narogong', 'L', 'default.png'),
 (30, 'jojo12', 'db7fadfdd0385b78e4eda247a11dfa49', 'respati tri susetyo', 0, 'tyorespati@ymail.com', 0, 'narogong jaya 9A', 'L', 'default.png'),
 (31, 'jasdjasd', 'db7fadfdd0385b78e4eda247a11dfa49', 'koplak', 0, 'tyorespati@gmail.com', 1, 'asdasdasd', 'L', 'default.png');
@@ -820,6 +850,12 @@ ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`);
+
+--
 -- Indexes for table `image`
 --
 ALTER TABLE `image`
@@ -837,6 +873,12 @@ ALTER TABLE `jenis_pariwisata`
 ALTER TABLE `kota`
   ADD PRIMARY KEY (`id_kota`),
   ADD KEY `pro_kota` (`id_prov`);
+
+--
+-- Indexes for table `kritik_saran`
+--
+ALTER TABLE `kritik_saran`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pariwisata`
@@ -876,12 +918,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `aktifitas`
 --
 ALTER TABLE `aktifitas`
-  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `image`
 --
@@ -897,6 +944,11 @@ ALTER TABLE `jenis_pariwisata`
 --
 ALTER TABLE `kota`
   MODIFY `id_kota` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
+--
+-- AUTO_INCREMENT for table `kritik_saran`
+--
+ALTER TABLE `kritik_saran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pariwisata`
 --
