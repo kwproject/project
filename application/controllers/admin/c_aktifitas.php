@@ -8,11 +8,11 @@ class C_aktifitas extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model(array('m_login','m_history'));
-		if ($this->session->userdata('Login') != 'berhasil') {
-
-			redirect('login');
-		}
-
+		if($this->session->userdata('level') == 0){
+            redirect('user/home');
+        }elseif ($this->session->userdata('Login')!='berhasil') {
+            redirect('login');  
+        } 
 		$this->user 	= $this->session->userdata('username');
 		$this->id_user	= $this->session->userdata('id_user');
 

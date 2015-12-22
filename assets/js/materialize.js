@@ -6521,3 +6521,11 @@ $(document).ready(function() {
     $(document).ready(function(){
     $('.slider').slider({full_width: true});
   });
+  
+  $(document).ready(function(){
+        $("#provinsi").change(function (){
+            var url = "<?php echo site_url('user/home/add_kota');?>/"+$(this).val();
+            $('#kabupaten').load(url);
+            return false;
+        })
+       });

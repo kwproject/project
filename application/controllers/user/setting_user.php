@@ -5,9 +5,13 @@
              $this->load->library(array('session','upload'));
              $this->load->library('form_validation');
             $this->load->model(array('m_user','m_login_user'));
-            if($this->session->userdata('Login') != 'berhasil'){
-                redirect('login');
-            }
+            if ($this->session->userdata('level')==1) {
+                echo "  <script>
+                            alert('Ini akses untuk User');
+                        </script>";
+            }elseif ($this->session->userdata('Login')!='berhasil') {
+                redirect('login');  
+            } 
             $this->user         = $this->session->userdata('username');
             $this->id_user      = $this->session->userdata('id_user');
                     $this->data = array(

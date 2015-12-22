@@ -31,29 +31,36 @@ $(document).ready(function(){
   <div class="navbar-fixed">
     <nav class="teal darken-5" role="navigation">
       <div class="nav-wrapper container">
-      <a href="<?php echo base_url('user/home'); ?>" class="brand-logo white-text"><strong>TripVisor</strong></a>
+      <a href="<?php echo base_url(); ?>" class="brand-logo white-text"><strong>TripVisor</strong></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="<?php echo base_url('pariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
-          <li><a href="<?php echo base_url('user/app/news'); ?>" class="white-text"><strong>Blog</strong></a></li>
+          <li><a href="<?php echo base_url('blog'); ?>" class="white-text"><strong>Blog</strong></a></li>
 
-          <?php if($this->session->userdata('Login')=='berhasil'&& $this->session->userdata('level')==0){ ?>
+          <?php if($this->session->userdata('Login')=='berhasil' && $this->session->userdata('level')==0  && $this->session->userdata('active')==1){ ?>
             <ul id="dropdown1" class="dropdown-content">
               <li><a href="<?php echo base_url('user/setting_user') ?>">Profile</a></li>
               <li><a href="<?php echo base_url('login/logout') ?>">Logout</a></li>
             </ul>
             <li><a href="<?php echo base_url('login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
 
+          <?php } elseif($this->session->userdata('level')==1) { ?>
+              <ul id="dropdown1" class="dropdown-content">
+                <li><a href="<?php echo base_url('login/logout') ?>">Logout</a></li>
+                <li><a href="<?php echo base_url('home') ?>">Kembali ke Admin</a></li>
+              </ul>
+              <li><a href="<?php echo base_url('login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
+              
           <?php } else { ?>
               <li><a href="<?php echo base_url('login'); ?>" class="white-text"><i class="material-icons left">person</i><strong>Masuk | Gabung</strong></a></li>
-          <?php } ?>
+           <?php } ?>
           
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a href="<?php echo base_url('pariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
-          <li><a href="<?php echo base_url('news'); ?>" class="white-text"><strong>Blog</strong></a></li>
+          <li><a href="<?php echo base_url('blog'); ?>" class="white-text"><strong>Blog</strong></a></li>
           <li><a href="<?php echo base_url('user/login'); ?>" class="white-text"><strong>Masuk | Gabung</strong></a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -67,9 +74,9 @@ $(document).ready(function(){
     <ul>
     <nav>
       <div class="nav-wrapper">
-        <form>
+        <form action="<?php echo base_url(); ?>search" method="get">
           <div class="input-field red">
-            <input id="search" type="search" required>
+            <input id="search" name ="q" type="search" required>
             <label for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
@@ -88,15 +95,14 @@ $(document).ready(function(){
         <div class="col l6 s12">
           <h5 class="white-text">Wisata Indonesia</h5>
           <p class="white-text">
-            &copy; 2015 Wisata Indonesia Society and Partners.<br>
-            All Right Reserved.
+            &copy; 2015 Wisata Indonesia<br>
             <br><br>
-            Find location of your tour with Wisata Indonesia.
+            Temukan tempat wisata di Indonesia
           </p>
         </div>
       
         <div class="col l2 s12">
-          <h5 class="white-text">General</h5>
+          <h5 class="white-text">Umum</h5>
           <ul>
             <li><a class="white-text" href="#!">Pariwisata</a></li>
             <li><a class="white-text" href="#!">Blog</a></li>
@@ -104,24 +110,24 @@ $(document).ready(function(){
           </ul>
         </div>
         <div class="col l2 s12">
-          <h5 class="white-text">Find</h5>
+          <h5 class="white-text">Cari</h5>
           <ul>
-            <li><a class="white-text" href="#!">Location</a></li>
-            <li><a class="white-text" href="#!">Maps</a></li>
+            <li><a class="white-text" href="#!">Lokasi</a></li>
+            <li><a class="white-text" href="#!">Map</a></li>
           </ul>
         </div>
         <div class="col l2 s12">
-          <h5 class="white-text">Contact</h5>
+          <h5 class="white-text">Kontak</h5>
           <ul>
-            <li><a class="white-text" href="#!">Contact</a></li>
-            <li><a class="white-text" href="#!">Kritik & Saran</a></li>
+            <li><a class="white-text" href="<?php echo base_url('user/contact');?>">Kontak</a></li>
+            <li><a class="white-text" href="<?php echo base_url('user/kritik_saran'); ?>">Kritik & Saran</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-        Made By Wisata Indonesia IT Team.
+        By KWproject IT Team
       </div>
     </div>
   </footer>

@@ -9,9 +9,11 @@ class C_berita extends CI_Controller {
         $this->load->library('upload');
         $this->load->library('form_validation');
         $this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata','m_berita'));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-        if($this->session->userdata('Login') != 'berhasil'){
-            redirect('login');
-        }
+       if($this->session->userdata('level') == 0){
+            redirect('user/home');
+        }elseif ($this->session->userdata('Login')!='berhasil') {
+            redirect('login');  
+        } 
         $this->user = $this->session->userdata('username');
         $this->data = array(
 

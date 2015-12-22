@@ -6,9 +6,11 @@
 			parent::__construct();
 			$this->load->library('form_validation');
 			$this->load->model(array('m_history','m_login','m_pariwisata','m_provinsi','m_kota','m_jenis_pariwisata'));
-			if($this->session->userdata('Login') != 'berhasil'){
-                redirect('login');
-            }   
+            if($this->session->userdata('level') == 0){
+                redirect('user/home');
+            }elseif ($this->session->userdata('Login')!='berhasil') {
+                redirect('login');  
+            } 
             $this->user = $this->session->userdata('username');
             $this->data = array(
                     'input_data'    => array(

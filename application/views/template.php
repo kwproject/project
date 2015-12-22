@@ -8,7 +8,7 @@
 	      function hideURLbar(){ window.scrollTo(0,1); } 
 	</script>
 	 <!-- Bootstrap Core CSS -->
-         <link href="<?php echo base_url();?>assets/css/jquery.dataTables.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>assets/css/jquery.dataTables.css" rel="stylesheet"> 
 	<link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 	<!-- Custom CSS -->
 	<link href="<?php echo base_url();?>assets/css/style.css" rel='stylesheet' type='text/css' />
@@ -25,6 +25,8 @@
     </style>
 	
 	<!-- jQuery -->
+    <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/ckeditor/ckeditor.js"></script>
 	<script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -57,10 +59,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo base_url('home'); ?>">Kikuk Awe Awe</a>
+                <a href="<?php echo base_url('user/home') ?>" class="btn btn-default navbar-btn">Website</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">
-                
                 <li class="dropdown">
                    
                     <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
@@ -86,6 +88,9 @@
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/c_berita'); ?>"><i class="fa fa-check-square-o nav_icon"></i>Berita</a>     
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('admin/c_kritik_saran'); ?>"><i class="fa fa-check-square-o nav_icon"></i>Kritik Saran dan Contact</a>
                         </li>
                     </ul>
                 </div>

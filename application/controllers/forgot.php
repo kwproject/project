@@ -8,10 +8,9 @@ class forgot extends CI_Controller
 		$this->load->library(array('form_validation','email'));
 		$this->load->model('m_verifikasi');
         $this->load->database();
-
-		if ($this->session->userdata('Login')!='berhasil') {
-		    redirect('login');  
-		} 
+        if ($this->session->userdata('Login')!='berhasil') {
+            redirect('login');  
+        } 
 	}
 	function index(){
 		$this->template->load('template_user','d_user/forgot_password');
@@ -44,8 +43,9 @@ class forgot extends CI_Controller
 			$this->email->initialize($config);
 			$this->email->from($config['smtp_user'],'KW Project');
 			$this->email->to($email);
-			$this->email->subject("Pemulihan Passowrd");
-			$this->email->message("Silahkan login kembali dengan password ini <br> password: indonesia");
+			$this->email->subject("Pemulihan Password");
+			$this->email->message("Silahkan klik link untuk update reset password".
+			site_url("user/forgot/password"));
 			$this->email->send();
 		}
 		$this->index();

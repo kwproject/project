@@ -7,6 +7,11 @@
             $this->load->helper('url');
             $this->load->model(array('m_login','m_history'));
             $this->load->database();
+            if($this->session->userdata('level') == 0){
+                redirect('user/home');
+            }elseif ($this->session->userdata('Login')!='berhasil') {
+                redirect('login');  
+            } 
             $this->user     = $this->session->userdata('username');
             $this->id_user  = $this->session->userdata('id_user');
             $this->data     = array(

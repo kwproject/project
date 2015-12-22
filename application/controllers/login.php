@@ -41,26 +41,24 @@ class Login extends CI_Controller{
                             $data_user['nama']        = $c->nama;
                             $data_user['level']       = $c->level;
                             $data_user['active']      = $c->active;
-                            $this->session->set_userdata($data_user);
                         }
-                        if($this->session->userdata('level')==1){
+                        if($data_user['level']==1){
+                            $this->session->set_userdata($data_user);
                             redirect('home');
-                        }elseif($this->session->userdata('level')==0){
-                            if ($this->session->userdata('active')==1) {
-                               redirect('user/home','refresh');
-                            } 
-                        } else {
-
-                             echo " <script>
-                                        alert('Gagal Login: Cek username dan password anda!');
-                                        history.go(-1);
-                                    </script>";
+                        }elseif($data_user['level'] == 0 &&  $data_user['active']==1){
+                            $this->session->set_userdata($data_user);
+                            redirect('user/home','refresh');
+                        } else { 
+                         echo " <script>
+                                    alert('Gagal Login: Cek username dan password anda!');
+                                    history.go(-1);
+                                </script>";     
                         }
                 }else{
-                        echo " <script>
-                                            alert('Gagal Login: Cek username dan password anda!');
-                                            history.go(-1);
-                                        </script>";
+                    echo " <script>
+                            alert('Gagal Login: Cek username dan password anda!');
+                            history.go(-1);
+                        </script>";
                 }
             }
         }

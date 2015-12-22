@@ -39,4 +39,14 @@ class M_berita extends CI_Model{
         $this->db->where('id_berita',$id);
         $this->db->delete($this->table);
     }
+    
+    function ambilBerita(){
+        
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->order_by('tanggal','DESC');
+        $this->db->limit('3');
+        $query = $this->db->get();
+        return $query;
+    }
 }

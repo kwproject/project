@@ -35,6 +35,28 @@ class M_user extends CI_Model {
         
     }
 
+    function getProvinsi(){
+    	$query = $this->db->get('provinsi');
+    	if ($query->num_rows > 0) {
+    		
+			return $query->result_array();
+    	}else {
+
+    		return array();
+    	}
+    }
+
+    function getKota($id_prov){
+        
+        $this->db->where('id_prov',$id_prov);
+        $query = $this->db->get('kota');
+        if ($query->num_rows() > 0 ) {
+        	return 	$query->result_array();
+        }else {
+        	return array();
+        }
+    }
+
 }
 
 /* End of file m_user.php */
