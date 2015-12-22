@@ -6,13 +6,10 @@
 			parent::__construct();
 			$this->load->helper('text');
 			$this->load->model('m_berita');
-			if ($this->session->userdata('Login')!='berhasil') {
-	            redirect('login');  
-	        } 
 		}
 
 		function index(){
-			$data['blog']			=$this->m_berita->AmbilDataPage();
+			$data['blog'] = $this->m_berita->AmbilData();
 			$this->template->load('template_user','user/berita/berita',$data);
 		}
 

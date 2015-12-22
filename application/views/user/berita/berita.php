@@ -29,10 +29,12 @@
                                 <img src="<?php echo base_url('uploads/berita/'.$r->foto_berita);?>">
                             </div>
                             <div class="card-content">
+                            <div class="container" style="word-wrap: break-word;">
                                 <span class="flow-text"><a class="black-text" href="#"><?php echo $r->judul_berita; ?></a></span>
                                 <p class="grey-text text-darken-1"><i class="material-icons left">date_range</i><?php echo $r->tanggal; ?></p>
-                                <p class="grey-text text-darken-1"><?php echo word_limiter($r->isi_berita,50); ?></p>
+                                <p class="grey-text text-darken-1"><?php echo substr($r->isi_berita,0,400); ?></p>
                                 <p class="grey-text text-darken-1 right-align"><a href="<?php echo base_url() ?>blog/read/<?php echo $r->id_berita?>" class="waves-effect waves-light btn-large">Selengkapnya</a></p>
+                            </div>
                             </div>
                         </div>
                         <?php } ?>

@@ -8,10 +8,6 @@ class forgot extends CI_Controller
 		$this->load->library(array('form_validation','email'));
 		$this->load->model('m_verifikasi');
         $this->load->database();
-
-		if ($this->session->userdata('Login')!='berhasil') {
-		    redirect('login');  
-		} 
 	}
 	function index(){
 		$this->template->load('template_user','d_user/forgot_password');
