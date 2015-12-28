@@ -12,7 +12,7 @@
               <div class="col-sm-10">
                   <select class="form-control1" name="nama_provinsi" id="provinsi" >
                       <option value="" >Pilih</option>
-                        <?php foreach($prov->result() as $prov){
+                        <?php foreach($prov as $prov){
                             echo '<option value='.$prov->id_prov.'>'.$prov->nm_prov.'</option>';
                         } ?>
                   </select>

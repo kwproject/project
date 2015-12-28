@@ -33,7 +33,7 @@ $(document).ready(function(){
       <div class="nav-wrapper container">
       <a href="<?php echo base_url(); ?>" class="brand-logo white-text"><strong>TripVisor</strong></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="<?php echo base_url('pariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
+          <li><a href="<?php echo base_url('user/navPariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
           <li><a href="<?php echo base_url('blog'); ?>" class="white-text"><strong>Blog</strong></a></li>
 
@@ -42,14 +42,14 @@ $(document).ready(function(){
               <li><a href="<?php echo base_url('user/setting_user') ?>">Profile</a></li>
               <li><a href="<?php echo base_url('login/logout') ?>">Logout</a></li>
             </ul>
-            <li><a href="<?php echo base_url('login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="#" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
 
           <?php } elseif($this->session->userdata('level')==1) { ?>
               <ul id="dropdown1" class="dropdown-content">
                 <li><a href="<?php echo base_url('login/logout') ?>">Logout</a></li>
                 <li><a href="<?php echo base_url('home') ?>">Kembali ke Admin</a></li>
               </ul>
-              <li><a href="<?php echo base_url('login'); ?>" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a href="#" class="dropdown-button white-text" data-activates="dropdown1"><i class="material-icons left">person</i><strong><?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?></strong><i class="material-icons right">arrow_drop_down</i></a></li>
               
           <?php } else { ?>
               <li><a href="<?php echo base_url('login'); ?>" class="white-text"><i class="material-icons left">person</i><strong>Masuk | Gabung</strong></a></li>
@@ -58,7 +58,7 @@ $(document).ready(function(){
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="<?php echo base_url('pariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
+          <li><a href="<?php echo base_url('user/navPariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
           <li><a href="<?php echo base_url('blog'); ?>" class="white-text"><strong>Blog</strong></a></li>
           <li><a href="<?php echo base_url('user/login'); ?>" class="white-text"><strong>Masuk | Gabung</strong></a></li>

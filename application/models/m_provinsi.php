@@ -14,7 +14,12 @@ class M_provinsi extends CI_Model{
     
     function AmbilData(){
         
-        return $this->db->get_where($this->table);        
+        $query = $this->db->get_where($this->table);
+        if ($query->num_rows() > 0) {
+           return $query->result();
+        } else {
+            return null;
+        }        
     }
     
     function getOne($data){
@@ -48,4 +53,6 @@ class M_provinsi extends CI_Model{
             return FALSE;
         }
     }
+
+    
 }
