@@ -5,19 +5,24 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->helper('text');
-			$this->load->model('m_berita');
+			$this->load->model(array('m_berita','m_login'));
+			$this->user = $this->session->userdata('username');
+			$this->data = array(
+				'title' => 'Blog',
+				'pengguna'	=> $this->m_login->data($this->user),
+			);
 		}
 
 		function index(){
-			$data['blog'] = $this->m_berita->AmbilData();
-			$this->template->load('template_user','user/berita/berita',$data);
+			$this->data['blog'] = $this->m_berita->AmbilData();
+			$this->template->load('template_user','user/berita/berita',$this->data);
 		}
 
 		function read(){
 			$id=$this->uri->segment(3);
-			$data['read']=$this->m_berita->Read($id);
-			$data['blog']=$this->m_berita->AmbilData();
-			$this->template->load('template_user','user/berita/read',$data);
+			$this->data['read']=$this->m_berita->Read($id);
+			$this->data['blog']=$this->m_berita->AmbilData();
+			$this->template->load('template_user','user/berita/read',$this->data);
 		} 
 	}
 ?>
