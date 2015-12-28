@@ -4,12 +4,17 @@
 
 		function __construct(){
 			parent::__construct();
-			$this->load->model(array('m_search','m_pariwisata','m_jenis_pariwisata'));
+			$this->load->model(array('m_search','m_pariwisata','m_jenis_pariwisata','m_login'));
+			$this->user = $this->session->userdata('username');
+			$this->data = array(
+				'title' 	=> "Search",
+				'pengguna' 	=> $this->m_login->data($this->user),
+			);
 		}
 
 		public function index(){
-			$data2['cari'] = $this->m_search->search();
-			$this->template->load('template_user','user/search', $data2);
+			$this->data['cari'] = $this->m_search->search();
+			$this->template->load('template_user','user/search', $this->data);
 		}
 	}
 ?>

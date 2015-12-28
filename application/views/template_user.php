@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Wisata Indonesia - Jejalah Indonesia</title>
+  <title><?php echo $title ?>| Wisata Indonesia - Jejalah Indonesia</title>
 
   <!-- CSS  -->
   <link href="<?php echo base_url();?>assets/css/family.css" rel="stylesheet">
@@ -100,15 +100,15 @@
         <div class="col l2 s12">
           <h5 class="white-text">Umum</h5>
           <ul>
-            <li><a class="white-text" href="#!">Pariwisata</a></li>
-            <li><a class="white-text" href="#!">Blog</a></li>
-            <li><a class="white-text" href="#!">Members</a></li>
+            <li><a class="white-text" href="<?php echo base_url('user/navPariwisata') ?>">Pariwisata</a></li>
+            <li><a class="white-text" href="<?php echo base_url('blog') ?>">Blog</a></li>
+            <li><a class="white-text" href="<?php echo base_url() ?>">Members</a></li>
           </ul>
         </div>
         <div class="col l2 s12">
           <h5 class="white-text">Cari</h5>
           <ul>
-            <li><a class="white-text" href="#!">Lokasi</a></li>
+            <li><a class="white-text" href="<?php echo base_url('user/') ?>">Lokasi</a></li>
             <li><a class="white-text" href="#!">Map</a></li>
           </ul>
         </div>
