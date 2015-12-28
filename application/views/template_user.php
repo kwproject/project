@@ -10,14 +10,10 @@
   <link href="<?php echo base_url();?>assets/css/family.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url();?>assets/css/style_user.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
   <script type="text/javascript">
-$(document).ready(function(){
-    $("#provinsi").change(function (){
-        var url = "<?php echo site_url('user/c_pariwisata/add_kota');?>/"+$(this).val();
-        $('#kabupaten').load(url);
-        return false;
-    })
-});
+
 </script>
 </head>
 <body>
@@ -136,8 +132,11 @@ $(document).ready(function(){
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js><\/script>')</script>
   <script type="text/javascript" src="<?php echo base_url();?>assets/js/materialize.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.fancybox.pack.js"></script>
   <script type="javascript">
-    $(".dropdown-button").dropdown();
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
   </script>
   </body>
 </html>
