@@ -1,31 +1,24 @@
 <div class="slider">
       <ul class="slides">
         <li>
-          <img src="<?php echo base_url();?>assets/images/paralax1.png"> <!-- random image -->
+          <img src="<?php echo base_url();?>assets/images/Ragunan.jpg"> <!-- random image -->
           <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>Ragunan Indonesia</h3>
+            <h5 class="light grey-text text-lighten-3">Wisata Indonesia</h5>
           </div>
         </li>
         <li>
-          <img src="<?php echo base_url();?>assets/images/paralax2.png"> <!-- random image -->
+          <img src="<?php echo base_url();?>assets/images/tamanmini.JPG"> <!-- random image -->
           <div class="caption left-align">
-            <h3>Left Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>Taman Mini Indonesia Indah</h3>
+            <h5 class="light grey-text text-lighten-3">Wisata Indonesia</h5>
           </div>
         </li>
         <li>
-          <img src="<?php echo base_url();?>assets/images/paralax3.png"> <!-- random image -->
+          <img src="<?php echo base_url();?>assets/images/museummonument.JPG"> <!-- random image -->
           <div class="caption right-align">
-            <h3>Right Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="<?php echo base_url();?>assets/images/paralax4.png"> <!-- random image -->
-          <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>Museum Nasional Indonesia</h3>
+            <h5 class="light grey-text text-lighten-3">Wisata Indonesi</h5>
           </div>
         </li>
       </ul>
@@ -39,10 +32,10 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-content teal darken-5">
-              <p class="white-text flow-text"><strong>Tahukah Kamu?</strong></p>
+              <p class="white-text flow-text"><strong>Taman Mini Indonesia</strong></p>
             </div>
             <div class="card-content">
-              <p class="teal-text darken-5">Indonesia mempunyai 1200 tempat wisata yang terletak dimasing-masing pulau Indonesia.</p>
+              <p class="teal-text darken-5">merupakan suatu kawasan taman wisata bertema budaya Indonesia di Jakarta Timur. Area seluas kurang lebih 150 hektare[1] atau 1,5 kilometer persegi man ini merupakan rangkuman kebudayaan bangsa Indonesia, yang mencakup berbagai aspek kehidupan sehari-hari masyarakat 26 provinsi Indonesia (pada tahun 1975) yang ditampilkan dalam anjungan daerah berarsitektur tradisional, serta menampilkan aneka busana, tarian, dan tradisi daerah.</p>
             </div>
           </div>
         </div>
@@ -50,10 +43,10 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-content teal darken-5">
-              <p class="white-text flow-text"><strong>Tahukah Kamu?</strong></p>
+              <p class="white-text flow-text"><strong>Ancol</strong></p>
             </div>
             <div class="card-content">
-              <p class="teal-text darken-5">Indonesia mempunyai 1200 tempat wisata yang terletak dimasing-masing pulau Indonesia.</p>
+              <p class="teal-text darken-5">merupakan sebuah objek wisata di Jakarta Utara. Sebagai komunitas pembaharuan kehidupan masyarakat yang menjadi kebanggaan bangsa. Senantiasa menciptakan lingkungan sosial yang lebih baik melalui sajian hiburan berkualitas yang berunsur seni, budaya dan pengetahuan, dalam rangka mewujudkan komunitas 'Life Re-Creation' yang menjadi kebanggaan bangsa..</p>
             </div>
           </div>
         </div>
@@ -61,10 +54,10 @@
         <div class="col s12 m4">
           <div class="card">
             <div class="card-content teal darken-5">
-              <p class="white-text flow-text"><strong>Tahukah Kamu?</strong></p>
+              <p class="white-text flow-text"><strong>Kebun Binatang Ragunan</strong></p>
             </div>
             <div class="card-content">
-              <p class="teal-text darken-5">Indonesia mempunyai 1200 tempat wisata yang terletak dimasing-masing pulau Indonesia.</p>
+              <p class="teal-text darken-5">Kebun Binatang Ragunan adalah sebuah kebun binatang yang terletak di daerah Ragunan, Pasar Minggu, Jakarta Selatan, Indonesia. Kebun binatang seluas 140 hektare ini didirikan pada tahun 1864. Di dalamnya, terdapat berbagai koleksi yang terdiri dari 295 spesies dan 4040 spesimen.</p>
             </div>
           </div>
         </div>
@@ -101,7 +94,7 @@
         <?php } ?>
 
         <ul class="pagination right">
-          <li class="active waves-effect"><a href='wisata.html'>Lihat Selengkapnya..</a></li>
+          <li class="active waves-effect"><a href='<?php echo base_url('blog') ?>'>Lihat Selengkapnya..</a></li>
         </ul>
       
       </div>

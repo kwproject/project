@@ -27,7 +27,7 @@
   <div class="navbar-fixed">
     <nav class="teal darken-5" role="navigation">
       <div class="nav-wrapper container">
-      <a href="<?php echo base_url(); ?>" class="brand-logo white-text"><strong>TripVisor</strong></a>
+      <a href="<?php echo base_url(); ?>" class="brand-logo white-text"><strong>Wisata Indonesia</strong></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="<?php echo base_url('user/navPariwisata'); ?>" class="white-text active"><strong>Pariwisata</strong></a></li>
           <li><a href="<?php echo base_url('maps'); ?>" class="white-text"><strong>Peta</strong></a></li>
@@ -102,14 +102,12 @@
           <ul>
             <li><a class="white-text" href="<?php echo base_url('user/navPariwisata') ?>">Pariwisata</a></li>
             <li><a class="white-text" href="<?php echo base_url('blog') ?>">Blog</a></li>
-            <li><a class="white-text" href="<?php echo base_url() ?>">Members</a></li>
           </ul>
         </div>
         <div class="col l2 s12">
           <h5 class="white-text">Cari</h5>
           <ul>
-            <li><a class="white-text" href="<?php echo base_url('user/') ?>">Lokasi</a></li>
-            <li><a class="white-text" href="#!">Map</a></li>
+            <li><a class="white-text" href="#">Lokasi</a></li>
           </ul>
         </div>
         <div class="col l2 s12">

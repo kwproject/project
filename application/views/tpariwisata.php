@@ -74,9 +74,8 @@
           <div class="container">
            <h4>Umum</h4>
            <ul class="unstyled">
-              <li><a href="#!">Pariwisata</a></li>
-              <li><a href="#!">Blog</a></li>
-              <li><a href="#!">Members</a></li>
+              <li><a href="<?php echo base_url('user/navPariwisata') ?>">Pariwisata</a></li>
+              <li><a href="<?php echo base_url('blog') ?>">Blog</a></li>
             </ul>
           </div><!-- end row -->
           </div><!-- end col-sm-3 -->
@@ -84,8 +83,7 @@
           <div class="container">
            <h4>Cari</h4>
            <ul>
-             <li><a href="">Lokasi</a></li>
-             <li><a href="">Map</a></li>
+             <li><a href="#">Lokasi</a></li>
            </ul>
           </div>
           </div><!-- end col-sm-3 -->
@@ -93,8 +91,8 @@
           <div class="container">
            <h4>Kontak</h4>
            <ul>
-             <li><a href="">Kontak</a></li>
-             <li><a href="">Kritik & Saran</a></li>
+             <li><a href="<?php echo base_url('user/contact');?>">Kontak</a></li>
+             <li><a href="<?php echo base_url('user/kritik_saran'); ?>">Kritik & Saran</a></li>
            </ul>
           </div>
           </div><!-- end col-sm-3 -->

@@ -12,7 +12,8 @@ class Login extends CI_Controller{
         public function index(){
                 $session = $this->session->userdata('Login');
                 if($session != 'berhasil'){
-                        $this->template->load('template_user','d_user/login_form');
+                        $data['title'] = "Login";
+                        $this->template->load('template_user','d_user/login_form',$data);
                 }else{
                         redirect('user/home');
                 }

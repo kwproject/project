@@ -10,7 +10,8 @@ class forgot extends CI_Controller
         $this->load->database();
 	}
 	function index(){
-		$this->template->load('template_user','d_user/forgot_password');
+		$data['title'] = "Lupa Password";
+		$this->template->load('template_user','d_user/forgot_password',$data);
 	}
 
 	public function v_password(){

@@ -10,11 +10,12 @@ class Registrasi extends CI_Controller{
 	}
 
 	function index(){
-
-		$this->template->load('template_user','d_user/register');
+		$data['title'] = "Registrasi";
+		$this->template->load('template_user','d_user/register',$data);
 	}
 	function direct(){
-		$this->template->load('template_user','d_user/login_form');
+		$data['title'] = "Login";
+		$this->template->load('template_user','d_user/login_form',$data);
 	}
 	public function InputData(){
 
