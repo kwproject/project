@@ -12,7 +12,8 @@
 	<link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 	<!-- Custom CSS -->
 	<link href="<?php echo base_url();?>assets/css/style.css" rel='stylesheet' type='text/css' />
-	<link href="<?php echo base_url();?>assets/css/font-awesome.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>assets/css/font-awesome.css" rel="stylesheet"> 
+	<link href="<?php echo base_url();?>assets/css/jqeury.fancybox.css" rel="stylesheet"> 
 	<style>
         #imagelightbox
             {
@@ -26,8 +27,9 @@
 	
 	<!-- jQuery -->
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.fancybox.js"></script>
     <script src="<?php echo base_url();?>assets/js/ckeditor/ckeditor.js"></script>
-	<script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+	
     <script type="text/javascript">
         $(document).ready(function(){
             $("#provinsi").change(function (){

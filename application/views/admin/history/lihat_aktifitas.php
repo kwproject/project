@@ -12,6 +12,7 @@
                                 <th><center>Nama User Pengirim</center></th>
                                 <th><center>Nama Pariwisata</center></th>
                                 <th><center>Operasi</center></th>
+                                <th><center>status</center></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,8 +24,21 @@
                                         <td><center>".$r->nama_pariwisata."</center></td>
                                         <td><center>   
                                             <a class='btn btn-primary' href='".base_url('admin/c_aktifitas/lihat_rekomendasi/'.$r->id_rekomendasi)."'>Lihat</a>  
-                                        </center></td>
-                                    </tr>";
+                                        </center></td>";
+                                        if ($r->status==0) {
+                                            echo "<td><center>
+                                                    <span style='color:black;' class='glyphicon glyphicon-minus'></span>
+                                                </center></td>";
+                                        } elseif($r->status==1){
+                                            echo "<td><center>
+                                                    <span style='color:green;' class='glyphicon glyphicon-check'></span>
+                                                </center></td>";
+                                        } elseif($r->status==2){
+                                            echo "<td><center>
+                                                    <span style='color:red;' class='glyphicon glyphicon-remove'></span>
+                                                </center></td>";
+                                        }
+                                 echo   "</tr>";
                                 $no++;
                             } ?>
                         </tbody>

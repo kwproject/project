@@ -19,17 +19,17 @@ class C_aktifitas extends CI_Controller {
 		$this->data = array(
 
 			'lihat_aktifitas'	=> array(
-                            'heading1'		=> 'Aktifitas',
-                            'heading2'		=> 'Rekomendasi User',
-                            'heading3'		=> 'Aktifitas Admin',
-                            'title'		    => 'History',
-                            'pengguna'		=> $this->m_login->data($this->user),
+                'heading1'		=> 'Aktifitas',
+                'heading2'		=> 'Rekomendasi User',
+                'heading3'		=> 'Aktifitas Admin',
+                'title'		    => 'History',
+                'pengguna'		=> $this->m_login->data($this->user),
 			),
-                        'lihat_rekomendasi'	=> array(
-                            'heading'	=> 'Rekomedasi',
-                            'title'		=> 'Rekomedasi',
-                            'pengguna'	=> $this->m_login->data($this->user),
-                        ),
+            'lihat_rekomendasi'	=> array(
+                'heading'	=> 'Rekomedasi',
+                'title'		=> 'Rekomedasi',
+                'pengguna'	=> $this->m_login->data($this->user),
+            ),
 		);
 	}
         
@@ -50,7 +50,9 @@ class C_aktifitas extends CI_Controller {
                 $jenis           = $this->input->post('id_jenis'); 
                 $nama_pariwisata = $this->input->post('nama_paris');
                 $deskripsi       = $this->input->post('deskripsi');
-                $id              = $this->input->post('id_user');
+                $id              = $this->input->post('id');
+                $nama_img        = $this->input->post('nama_img');
+                $full_path       = $this->input->post('full_path');
                 $data = array(
                     'update'        => array(
                         'status'    => '1'
@@ -66,24 +68,36 @@ class C_aktifitas extends CI_Controller {
                        'id_user'    => $id_user,
                        'isi_pesan' => 'Rekomendasi anda yang bernama '.$nama_pariwisata.' sudah kami terima, Terima Kasih atas kerjasamanya ', 
                     ),
-                    
                 );
                 $laporan = array(
                         'id_user'       => $this->session->userdata('id_user'),
                         'aktifitas'     => 'Telah melakukan proses penerimaan rekomendasi dari '.$username.'dengan pariwisata '.$nama_pariwisata.'',
                         'tanggal'       => gmdate("Y-m-d H:i:s", time()+60*60*7),
                 );
-                $this->m_history->updateStatus($data,$id_user);
+                $this->m_history->updateStatus($data,$id);
                 $this->m_history->inputAktifitas($laporan);
                 $this->m_history->inputPariwisata($data);
                 $this->m_history->inputPesan($data);
+                $hasil = $this->m_history->cariIdPariwisata($nama_pariwisata);
+                foreach($hasil as $h){
+                    $id_pariwisata = $h->id_pariwisata;
+                }
+                $image = array(
+                    'id_pariwisata' => $id_pariwisata,
+                    'full_path'     => $full_path,
+                    'nama_img'      => $nama_img
+                );
+                $this->m_history->inputImage($image);
                 echo "  <script>
                             alert('Berhasil Menerima')
                         </script>";
                 $this->index();
                 
             }  elseif (isset($_POST['tolak'])) {
-                    
+                $id              = $this->input->post('id');
+                $id_user         = $this->input->post('id_user');
+                $username        = $this->input->post('username');
+                $nama_pariwisata = $this->input->post('nama_paris');
                 $data = array(
                     'update'        => array(
                         'status'    => '2'

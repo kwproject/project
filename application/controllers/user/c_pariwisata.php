@@ -47,6 +47,7 @@
             $config['upload_path']      = './uploads';
             $config['allowed_types']    = 'jpg|png|gif';
             $config['overwrite']        = 'False';
+            $config['max_size']         = '1000';
             return $config;
         }
 
@@ -56,7 +57,6 @@
             $this->form_validation->set_rules('jenis', 'Jenis', 'required|trim|xss_clean');
             $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim|xss_clean');
             $this->form_validation->set_rules('nama_kota','Nama Kota','required|trim|xss_clean');
-            $this->form_validation->set_rules('userfile','Foto','required|trim|xss_clean');
             $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
             if(isset($_POST['submit'])) {
                 if($this->form_validation->run()==FALSE){
@@ -64,39 +64,53 @@
                     $this->data['input_data']['jenis']= $this->m_jenis_pariwisata->AmbilData();
                     $this->template->load('dashboard_user','d_user/pariwisata/input_data',$this->data['input_data']);
                 }else{
-                    $nama_kota              = $this->input->post('nama_kota');
-                    $nama_pariwisata        = $this->input->post('nama_pariwisata');
-                    $jenis                  = $this->input->post('jenis');
-                    $deskripsi              = $this->input->post('deskripsi');
-                    $prov                   = $this->input->post('nama_provinsi');
-                    $id_user                = $this->session->userdata('id_user');
-                    $input = array(
-                        'id_prov'               =>$prov,
-                        'nm_pariwisata'         =>$nama_pariwisata,
-                        'id_jenis_pariwisata'   =>$jenis,
-                        'deskripsi'             =>$deskripsi,
-                        'id_kota'               =>$nama_kota
-                    );
-                    $rekomen = array(
-                        
-                        'id_prov'               => $prov,
-                        'nama_pariwisata'       => $nama_pariwisata,
-                        'id_jenis_pariwisata'   => $jenis,
-                        'deskripsi'             => $deskripsi,
-                        'id_kota'               => $nama_kota,
-                        'id_user'               => $id_user,
-                        'status'                => '0',
-                        'tanggal'               => gmdate("Y-m-d H:i:s", time()+60*60*7),
-                    );
-                    
-                    $this->m_pariwisata->InputRekomendasi($rekomen);
-                    $this->m_pariwisata->InputData($input);
-                    $this->data['input_data']['notif'] = "Success";
-                    $this->data['input_data']['prov'] = $this->m_provinsi->AmbilData();
-                    $this->data['input_data']['jenis']= $this->m_jenis_pariwisata->AmbilData();
-                    $this->template->load('dashboard_user','d_user/pariwisata/input_data',$this->data['input_data']);
-                }
+                    $this->load->library('upload');
+                    $this->upload->initialize($this->setup_upload_option());
+                    if ($this->upload->do_upload() == false) {
+                        $this->data['input_data']['error'] = array('error'=>$this->upload->display_errors());
+                        $this->data['input_data']['prov'] = $this->m_provinsi->AmbilData();
+                        $this->data['input_data']['jenis']= $this->m_jenis_pariwisata->AmbilData();
+                        $this->template->load('dashboard_user','d_user/pariwisata/input_data',$this->data['input_data']);
+                    } else {
 
+                        $data = $this->upload->data();
+                        $config['image_library'] = 'gd2';
+                        $config['source_image'] = $data['full_path'];
+                        $config['new_image']    = './uploads/thumbs';
+                        $config['overwrite']    = false;
+                        $config['maintain_ratio'] = TRUE;
+                        $config['width']    = 150;
+                        $config['height']   = 150; 
+                        $this->load->library('image_lib',$config);
+                        $this->image_lib->resize();
+                        $nama_img               = $data['orig_name'];
+                        $path                   = $data['full_path'];
+                        $nama_kota              = $this->input->post('nama_kota');
+                        $nama_pariwisata        = $this->input->post('nama_pariwisata');
+                        $jenis                  = $this->input->post('jenis');
+                        $deskripsi              = $this->input->post('deskripsi');
+                        $prov                   = $this->input->post('nama_provinsi');
+                        $id_user                = $this->session->userdata('id_user');
+                        $rekomen = array(
+                            
+                            'id_prov'               => $prov,
+                            'nama_pariwisata'       => $nama_pariwisata,
+                            'id_jenis_pariwisata'   => $jenis,
+                            'deskripsi'             => $deskripsi,
+                            'id_kota'               => $nama_kota,
+                            'id_user'               => $id_user,
+                            'status'                => '0',
+                            'tanggal'               => gmdate("Y-m-d H:i:s", time()+60*60*7),
+                            'nama_img'              => $nama_img,
+                            'full_path'             => $path,
+                        );
+                        $this->m_pariwisata->InputRekomendasi($rekomen);
+                        $this->data['input_data']['notif'] = "Success";
+                        $this->data['input_data']['prov'] = $this->m_provinsi->AmbilData();
+                        $this->data['input_data']['jenis']= $this->m_jenis_pariwisata->AmbilData();
+                        $this->template->load('dashboard_user','d_user/pariwisata/input_data',$this->data['input_data']);
+                    }
+                }
             }else{
                 $this->data['input_data']['prov'] = $this->m_provinsi->AmbilData();
                 $this->data['input_data']['jenis']= $this->m_jenis_pariwisata->AmbilData();

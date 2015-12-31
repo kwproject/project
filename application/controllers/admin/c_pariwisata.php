@@ -181,14 +181,18 @@
 
             if (isset($_POST['submit'])) {
 
-                $id = $this->input->post('id');
-                $nm_pariwisata = $this->input->post('nama_pariwisata');
-                $deskripsi = $this->input->post('deskripsi');
+                $id             = $this->input->post('id');
+                $nm_pariwisata  = $this->input->post('nama_pariwisata');
+                $deskripsi      = $this->input->post('deskripsi');
+                $lat            = $this->input->post('lat');
+                $lng            = $this->input->post('lng');
 
                 $data = array(
 
                     'nm_pariwisata' => $nm_pariwisata,
-                    'deskripsi'     => $deskripsi
+                    'deskripsi'     => $deskripsi,
+                    'lat'           => $lat,
+                    'lng'           => $lng
                 );
                 $id_user = $this->session->userdata('id_user');
                 $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
@@ -201,6 +205,9 @@
                 );
                 $this->m_history->inputAktifitas($laporan);
                 $this->m_pariwisata->updateData($data,$id);
+                echo "<script>
+                        alert('berhasil update data')
+                    </script>";
                 $this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
                 $this->template->load('template','admin/pariwisata/lihat_data',$this->data['lihat_data']);
             }else{
@@ -232,6 +239,7 @@
             );
             $this->m_history->inputAktifitas($laporan);
             $delete = $this->m_pariwisata->delete($id);
+            echo "<script>alert('berhasil menghapus data')</script>";
             $this->data['lihat_data']['record']=$this->m_pariwisata->AmbilData();
             $this->template->load('template','admin/pariwisata/lihat_data',$this->data['lihat_data']);
             

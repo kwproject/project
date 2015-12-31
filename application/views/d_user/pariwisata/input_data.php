@@ -4,7 +4,8 @@
         <div class="panel-title"><?php echo $heading ?></div>
     </div>
     <div class="panel-body">
-        <?php echo form_open('user/c_pariwisata/InputData'); ?>
+        <?php echo form_open_multipart('user/c_pariwisata/InputData'); ?>
+        
        <div class="col-md-offset-1 col-md-10">
        <div class="form-horizontal">
           <div class="form-group">
@@ -99,23 +100,31 @@
             <div class="form-group">
               <label for="" class="col-md-2 control-label">Foto</label>
               <div class="col-sm-10">
-                <?php echo form_upload(array('name'=>'userfile')); ?>
+                <input type="file" name="userfile" required="TRUE">
+                <br>
+                <label>File tidak boleh besar lebih dari 1mb</label><br>
+                <label>File harus berbentuk jpg,png,gif</label>
               </div>
+
             </div>
-           <?php if (!empty(form_error('userfile'))) {
-            echo "<div class='form-group'>
+           <?php if (!empty($error)) {
+              foreach($error as $e){
+               echo "<div class='form-group'>
                     <div class='col-sm-offset-2 col-sm-10'>
                         <div class='alert alert-danger' role='alert'>
-                            ".form_error('userfile')."
+                            ".$e."
                         </div>
                     </div>
                   </div>";
+              }
             } ?>
               <?php 
               if (!empty($notif)) {
                   echo '<div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
+                          <div class="alert alert-success" role="alert">
                            '.$notif.'
+                           </div>
                            </div>
                         </div>';
               } ?>
@@ -126,6 +135,6 @@
             </div>
         </div>
         </div>
-    </form>
+    <?php echo form_close(); ?>
     </div>
 </div>

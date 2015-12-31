@@ -59,6 +59,41 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="col-md-2 control-label" > latitude lokasi</label>
+              <div class="col-sm-10">
+                <?php foreach($record->result() as $r){
+
+                  echo "<input type='text' name='lat' value='".$r->lat."' class='form-control1'>";  
+                } ?>
+              </div>
+            </div>
+             <?php if (!empty(form_error('lat'))) {
+                 echo "<div class='form-group'>
+                  <div class='col-sm-offset-2 col-sm-10'>
+                      <div class='alert alert-danger' role='alert'>
+                          ".form_error('lat')."
+                      </div>
+                  </div>
+                </div>";
+            } ?>
+            <div class="form-group">
+              <label class="col-md-2 control-label" > longitude lokasi</label>
+              <div class="col-sm-10">
+               <?php foreach ($record->result() as $r): ?>
+                  <input type="text" name="lng" value="<?php echo $r->lng; ?>" class="form-control1">
+                <?php endforeach ?>
+              </div>
+            </div>
+            <?php if (!empty(form_error('lng'))) {
+                 echo "<div class='form-group'>
+                  <div class='col-sm-offset-2 col-sm-10'>
+                      <div class='alert alert-danger' role='alert'>
+                          ".form_error('lng')."
+                      </div>
+                  </div>
+                </div>";
+            } ?>
+            <div class="form-group">
               <label for="" class="col-md-2 control-label">Deskripsi Pariwisata</label>
               <div class="col-sm-10">
               <?php foreach($record->result() as $r){ ?>

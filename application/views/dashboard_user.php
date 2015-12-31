@@ -57,7 +57,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url('user/home'); ?>">TripVisor</a>
+                <a class="navbar-brand" href="<?php echo base_url('user/home'); ?>">Wisata Indonesia</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-nav navbar-right">

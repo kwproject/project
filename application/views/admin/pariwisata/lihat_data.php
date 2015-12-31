@@ -15,7 +15,8 @@
                         <th width="10px">
                             <center>Jenis Pariwisata</center>
                         </th>
-                        <th><center>Deskripsi Pariwisata</center></th>
+                        <th><center>latitude lokasi</center></th>
+                        <th><center>longitude lokasi</center></th>
                         <th><center>Provinsi</center></th>
                         <th><center>Kota</center></th>
                         <th><center>Gambar</center></th>
@@ -27,9 +28,17 @@
                         echo "<tr>
                                 <td><center>$no</center></td>
                                 <td><center>$r->nm_pariwisata</center></td>
-                                <td><center>$r->nama_jenis</center></td>
-                                <td><center>".substr($r->deskripsi,0, 20)."</center></td>
-                                <td><center>$r->nm_prov</center></td>
+                                <td><center>$r->nama_jenis</center></td>";
+                                if ($r->lat==0.000000 && $r->lng==0.000000) {
+                                    echo " <td><center>$r->lat <span style='color:red;' class='glyphicon glyphicon-remove'></span></center></td>
+                                            <td><center>$r->lng <span style='color:red;' class='glyphicon glyphicon-remove'></span></center></td>";
+                    } else {
+
+                        echo "<td><center>$r->lat</center></td>
+                            <td><center>$r->lng</center></td>";
+                    }
+
+                        echo    "<td><center>$r->nm_prov</center></td>
                                 <td><center>$r->nm_kota</center></td>
                                 <td><center><a class='btn btn-primary' href='".base_url('admin/c_pariwisata/InputGambar/'.$r->id_pariwisata)."'><span class='glyphicon glyphicon-picture'></span> </a></center></td>
                                 <td><center><a class='btn btn-primary' href='".base_url('admin/c_pariwisata/edit/'.$r->id_pariwisata)."'><span class='glyphicon glyphicon-pencil'></span> </a>
