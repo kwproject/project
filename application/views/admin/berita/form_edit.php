@@ -26,7 +26,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">Isi Berita</label>
                 <div class="col-sm-10">
-                    <?php echo form_textarea(array('name'=>'isi','class'=>'form-control1','value'=>$r->isi_berita,'style'=>'height:200px;')); ?>
+                    <?php echo form_textarea(array('name'=>'isi','class'=>'form-control1 ckeditor','value'=>$r->isi_berita,'style'=>'height:200px;')); ?>
                 </div>
             </div>
              

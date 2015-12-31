@@ -62,7 +62,7 @@
               <label for="" class="col-md-2 control-label">Deskripsi Pariwisata</label>
               <div class="col-sm-10">
               <?php foreach($record->result() as $r){ ?>
-                <?php echo form_textarea(array('name'=>'deskripsi','class'=>'form-control1','style'=>'height:100px;','value'=>$r->deskripsi)); ?>
+                <?php echo form_textarea(array('name'=>'deskripsi','class'=>'form-control1 ckeditor','style'=>'height:100px;','value'=>$r->deskripsi)); ?>
               <?php } ?>
                  <?php if (!empty(form_error('deskripsi'))) {
                       echo form_error('deskripsi');

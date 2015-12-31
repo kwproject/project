@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" >Isi Berita</label>
                 <div class="col-sm-10">
-                    <textarea style="height: 200px; " name="isi" class="form-control1"></textarea>
+                    <textarea style="height: 200px; " name="isi" class="form-control1 ckeditor"></textarea>
                 </div>
             </div>
              

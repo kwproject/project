@@ -56,6 +56,7 @@
             $this->form_validation->set_rules('jenis', 'Jenis', 'required|trim|xss_clean');
             $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim|xss_clean');
             $this->form_validation->set_rules('nama_kota','Nama Kota','required|trim|xss_clean');
+            $this->form_validation->set_rules('userfile','Foto','required|trim|xss_clean');
             $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
             if(isset($_POST['submit'])) {
                 if($this->form_validation->run()==FALSE){

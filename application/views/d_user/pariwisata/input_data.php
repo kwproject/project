@@ -18,7 +18,7 @@
                   </select>
               </div>
             </div>
-            <?php if (!empty(form_error('nama_kota'))) {
+            <?php if (!empty(form_error('nama_provinsi'))) {
                 echo "<div class='form-group'>
                         <div class='col-sm-offset-2 col-sm-10'>
                             <div class='alert alert-danger' role='alert'>
@@ -52,7 +52,7 @@
                     <input type="text" class="form-control1"  name="nama_pariwisata"  placeholder="Nama Pariwisata" >
                 </div>
             </div>
-           <?php if (!empty(form_error('nama_kota'))) {
+           <?php if (!empty(form_error('nama_pariwisata'))) {
             echo "<div class='form-group'>
                     <div class='col-sm-offset-2 col-sm-10'>
                         <div class='alert alert-danger' role='alert'>
@@ -72,7 +72,7 @@
                     </select>
                 </div>
             </div>
-            <?php if (!empty(form_error('nama_kota'))) {
+            <?php if (!empty(form_error('jenis'))) {
                 echo "<div class='form-group'>
                         <div class='col-sm-offset-2 col-sm-10'>
                             <div class='alert alert-danger' role='alert'>
@@ -87,14 +87,29 @@
                 <?php echo form_textarea(array('name'=>'deskripsi','class'=>'form-control1 ckeditor','style'=>'height:100px;')); ?>
               </div>
             </div>
-           <?php if (!empty(form_error('nama_kota'))) {
-                echo "<div class='form-group'>
-                        <div class='col-sm-offset-2 col-sm-10'>
-                            <div class='alert alert-danger' role='alert'>
-                                ".form_error('deskripsi')."
-                            </div>
+           <?php if (!empty(form_error('deskripsi'))) {
+            echo "<div class='form-group'>
+                    <div class='col-sm-offset-2 col-sm-10'>
+                        <div class='alert alert-danger' role='alert'>
+                            ".form_error('deskripsi')."
                         </div>
-                      </div>";
+                    </div>
+                  </div>";
+            } ?>
+            <div class="form-group">
+              <label for="" class="col-md-2 control-label">Foto</label>
+              <div class="col-sm-10">
+                <?php echo form_upload(array('name'=>'userfile')); ?>
+              </div>
+            </div>
+           <?php if (!empty(form_error('userfile'))) {
+            echo "<div class='form-group'>
+                    <div class='col-sm-offset-2 col-sm-10'>
+                        <div class='alert alert-danger' role='alert'>
+                            ".form_error('userfile')."
+                        </div>
+                    </div>
+                  </div>";
             } ?>
               <?php 
               if (!empty($notif)) {

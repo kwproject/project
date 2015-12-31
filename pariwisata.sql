@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2015 at 03:48 PM
+-- Generation Time: Dec 31, 2015 at 05:45 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -46,7 +46,20 @@ INSERT INTO `aktifitas` (`id_aktifitas`, `id_user`, `aktifitas`, `tanggal`) VALU
 (23, 3, 'Telah melakukan proses penerimaan rekomendasi dari respatidengan pariwisata kmenamas aja d adahsd', '2015-12-14 23:34:51'),
 (24, 3, 'Telah melakukan input data berita dengan judul  naruto mati', '2015-12-18 13:20:40'),
 (25, 3, 'Telah melakukan input data berita dengan judul  asda[psajfjji', '2015-12-18 13:20:55'),
-(26, 3, 'Telah menghapus kontak', '2015-12-22 21:33:49');
+(26, 3, 'Telah menghapus kontak', '2015-12-22 21:33:49'),
+(27, 3, 'Telah melakukan Input data pada Pariwisata Ancol', '2015-12-28 13:07:28'),
+(28, 3, 'Telah melakukan input data berita dengan judul  jokowi', '2015-12-28 18:35:17'),
+(29, 3, 'Telah melakukan Update data Berita dijudul jokowi', '2015-12-28 18:35:24'),
+(30, 3, 'Telah melakukan Update data Berita dijudul jokowi', '2015-12-29 12:21:09'),
+(31, 3, 'Telah melakukan Update pada Pariwisata baru baru aja', '2015-12-29 12:22:33'),
+(32, 3, 'Telah melakukan Update pada Pariwisata baru baru', '2015-12-29 12:22:49'),
+(33, 3, 'Telah melakukan Delete pada Pariwisata kmenamas aja d adahsd', '2015-12-29 12:23:16'),
+(34, 3, 'Telah melakukan Delete pada Pariwisata ASDASD', '2015-12-29 12:23:21'),
+(35, 3, 'Telah melakukan Update pada Pariwisata asdasdasd', '2015-12-30 00:28:20'),
+(36, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-30 00:28:27'),
+(37, 3, 'Telah melakukan Update pada Pariwisata asdagggggggg', '2015-12-30 00:33:06'),
+(38, 3, 'Telah melakukan Update pada Pariwisata asdagggggggg', '2015-12-30 00:33:11'),
+(39, 3, 'Telah melakukan Input data pada Pariwisata ASDASD', '2015-12-31 11:26:32');
 
 -- --------------------------------------------------------
 
@@ -70,7 +83,8 @@ INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `foto_berita`, 
 (8, 'asdasdasda', 'asdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'closeupgaben1.jpg', '2015-12-11 18:55:55'),
 (9, 'asdasd', 'asdasd', 'closeupgaben4.jpg', '2015-12-12 01:04:16'),
 (10, 'naruto mati', 'gini nih asdasdasdasd', 'closeupgaben12.jpg', '2015-12-18 13:20:40'),
-(11, 'asda[psajfjji', 'uiasdh9asfhas0faj9sfj0an0sfj', 'closeupgaben7.jpg', '2015-12-18 13:20:55');
+(11, 'asda[psajfjji', 'uiasdh9asfhas0faj9sfj0an0sfj', 'closeupgaben7.jpg', '2015-12-18 13:20:55'),
+(12, 'jokowi', 'asdasdasd', 'Screenshot_3.png', '2015-12-28 18:35:17');
 
 -- --------------------------------------------------------
 
@@ -105,7 +119,8 @@ CREATE TABLE `image` (
 INSERT INTO `image` (`id_img`, `nama_img`, `full_path`, `id_pariwisata`) VALUES
 (12, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
 (13, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
-(14, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8);
+(14, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
+(15, 'Screenshot_5.png', 'C:/xampp/htdocs/kompress/uploads/Screenshot_5.png', 19);
 
 -- --------------------------------------------------------
 
@@ -123,9 +138,10 @@ CREATE TABLE `jenis_pariwisata` (
 --
 
 INSERT INTO `jenis_pariwisata` (`id_jenis_pariwisata`, `nama_jenis`) VALUES
-(1, 'udara'),
-(2, 'air'),
-(3, 'darat');
+(1, 'pantai'),
+(2, 'gunung'),
+(3, 'kuliner'),
+(4, 'pendidikan');
 
 -- --------------------------------------------------------
 
@@ -671,22 +687,17 @@ CREATE TABLE `pariwisata` (
   `deskripsi` text NOT NULL,
   `id_kota` int(11) NOT NULL,
   `id_jenis_pariwisata` int(11) NOT NULL,
-  `id_prov` int(11) NOT NULL
+  `id_prov` int(11) NOT NULL,
+  `lat` float(10,6) NOT NULL,
+  `lng` float(10,6) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pariwisata`
 --
 
-INSERT INTO `pariwisata` (`id_pariwisata`, `nm_pariwisata`, `deskripsi`, `id_kota`, `id_jenis_pariwisata`, `id_prov`) VALUES
-(8, 'kopang', 'asdasdasdasdasd', 78, 2, 4),
-(15, 'ASDASD', 'asdasdads', 143, 1, 10),
-(16, 'ASDASD', 'asdasd', 28, 1, 2),
-(19, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
-(20, 'ASDASD', '<p>asdasdasd</p>', 3, 1, 1),
-(24, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', 61, 2, 3),
-(25, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', 61, 2, 3),
-(23, 'ASDASD', '<p>asdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>', 3, 1, 1);
+INSERT INTO `pariwisata` (`id_pariwisata`, `nm_pariwisata`, `deskripsi`, `id_kota`, `id_jenis_pariwisata`, `id_prov`, `lat`, `lng`) VALUES
+(27, 'ASDASD', '<p>aasdasdasdasd</p>', 3, 2, 1, 10000.000000, 10000.000000);
 
 -- --------------------------------------------------------
 
@@ -918,27 +929,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `aktifitas`
 --
 ALTER TABLE `aktifitas`
-  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `jenis_pariwisata`
 --
 ALTER TABLE `jenis_pariwisata`
-  MODIFY `id_jenis_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jenis_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `kota`
 --
@@ -948,12 +959,12 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT for table `kritik_saran`
 --
 ALTER TABLE `kritik_saran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pariwisata`
 --
 ALTER TABLE `pariwisata`
-  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `pesan`
 --
