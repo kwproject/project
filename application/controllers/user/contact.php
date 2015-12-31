@@ -10,7 +10,7 @@
 	        $this->user = $this->session->userdata('username');
 	        $this->data = array(
 	        	'contact'		=> array(
-	        		'title'		=> 'Pariwisata',
+	        		'title'		=> 'Kontak',
 	        		'pengguna'	=> $this->m_login->data($this->user),
 	        	),
 	        );

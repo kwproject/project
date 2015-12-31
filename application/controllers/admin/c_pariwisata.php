@@ -64,10 +64,13 @@
 
 		function InputData(){
 
+            $this->form_validation->set_rules('nama_provinsi','Nama Provinsi','required|trim|xss_clean');
 			$this->form_validation->set_rules('nama_pariwisata','Nama Pariwisata','required|trim|xss_clean');
 			$this->form_validation->set_rules('jenis', 'Jenis', 'required|trim|xss_clean');
 			$this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim|xss_clean');
             $this->form_validation->set_rules('nama_kota','Nama Kota','required|trim|xss_clean');
+            $this->form_validation->set_rules('lat','latitude lokasi','required|trim|xss_clean');
+            $this->form_validation->set_rules('lng','longitude lokasi','required|trim|xss_clean');
 			$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
             if(isset($_POST['submit'])) {
                 if($this->form_validation->run()==FALSE){
@@ -80,12 +83,16 @@
                     $jenis                  = $this->input->post('jenis');
                     $deskripsi              = $this->input->post('deskripsi');
                     $prov                   = $this->input->post('nama_provinsi');
+                    $lat                    = $this->input->post('lat');
+                    $lng                    = $this->input->post('lng');
                     $input = array(
                         'id_prov'               =>$prov,
                         'nm_pariwisata'         =>$nama_pariwisata,
                         'id_jenis_pariwisata'   =>$jenis,
                         'deskripsi'             =>$deskripsi,
-                        'id_kota'               =>$nama_kota
+                        'id_kota'               =>$nama_kota,
+                        'lat'                   =>$lat,
+                        'lng'                   =>$lng
                     );
                     $id      = $this->session->userdata('id_user');
                     $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
@@ -183,11 +190,11 @@
                     'nm_pariwisata' => $nm_pariwisata,
                     'deskripsi'     => $deskripsi
                 );
-                $id      = $this->session->userdata('id_user');
+                $id_user = $this->session->userdata('id_user');
                 $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                 $laporan = array(
 
-                    'id_user'       => $id,
+                    'id_user'       => $id_user,
                     'aktifitas'     => 'Telah melakukan Update pada Pariwisata '.$nm_pariwisata.'',
                     'tanggal'       => $date,
 

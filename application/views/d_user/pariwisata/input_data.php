@@ -67,7 +67,7 @@
                     <select class="form-control1" name="jenis">
                         <option value="" >--Pilih--</option>
                           <?php foreach ($jenis->result() as $r): ?>
-                                  <option value="<?php echo $r->id_jenis_pariwisata; ?>"><?php echo $r->nama_jenis; ?></option>
+                                  <option value="<?php echo $r->id_jenis_pariwisata; ?>"><?php echo ucfirst($r->nama_jenis); ?></option>
                           <?php endforeach ?>
                     </select>
                 </div>

@@ -11,8 +11,8 @@
             <label class="col-sm-4"><center>Provinsi</center></label>
             <div class="col-sm-6">
             <?php echo form_open('user/navPariwisata') ?>
-              <select style="width:300px;" name="provinsi" class="form-control" id="provinsi_id">
-                <option value="" disabled>--PILIH--</option>
+              <select style="width:300px;" name="provinsi" class="form-control" id="provinsi_id" required="true">
+              <option value="">--pilih provinsi --</option>
                 <?php foreach($prov as $p){
                   echo "<option value='".$p->id_prov."'>".$p->nm_prov."</option>";
                 }  ?>
@@ -22,8 +22,19 @@
           <div class="form-group">
             <label class="col-sm-4"><center>Kota</center></label>
             <div class="col-sm-6">
-              <select style="width:300px;" name="kota" class="form-control" id="kabupaten">
-                <option value="" disabled="">--PILIH--</option>
+              <select style="width:300px;" name="kota" class="form-control" id="kabupaten" required="true">
+                <option value="" disabled="">--pilih kota--</option>
+              </select>
+            </div><!-- end col-sm-3 col-sm-offset-1 -->
+          </div><!-- end form-group -->
+          <div class="form-group">
+            <label class="col-sm-4"><center>Jenis</center></label>
+            <div class="col-sm-6">
+              <select style="width:300px;" name="jenis" class="form-control" id="jenisId" required="true">
+                <option value="">--pilih jenis--</option>
+                <?php foreach($jenis->result() as $j){
+                  echo "<option value='$j->id_jenis_pariwisata'>".ucfirst($j->nama_jenis)."</option>";
+                } ?>
               </select>
             </div><!-- end col-sm-3 col-sm-offset-1 -->
           </div><!-- end form-group -->
@@ -50,7 +61,7 @@
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <img src="<?php echo base_url('uploads/'.$r->nama_img);?>" alt="...">
-            <div class="container" style="background-color:#009688;">
+            <div class="container" style="background-color:#79bd9a;">
             <div class="caption" style="color:#fff;">
               <h2><?php echo strtoupper($r->nm_pariwisata) ?></h2>
               <br>
@@ -59,7 +70,7 @@
                 <hr>
                 <p><?php echo substr($r->deskripsi, 0, 50) ?></p>
               </div>
-              <p><a href="<?php echo base_url('user/navPariwisata/lihat_pariw/'.md5($r->id_pariwisata)) ?>" class="btn btn-danger" role="button">lihat</a></p>
+              <p><a href="<?php echo base_url('user/navPariwisata/lihat_pariw/'.md5($r->id_pariwisata)) ?>" class="btn btn-danger" role="button">Lihat</a></p>
             </div>
             </div>
           </div>
@@ -67,11 +78,11 @@
         <?php else: ?>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
-          <div class="container" style="background-color:#009688;">
+          <div class="container" style="background-color:#79bd9a;" style="word-wrap: break-word;">
             <div class="caption" style="color:#fff;" >   
               <h2><?php echo strtoupper($r->nm_pariwisata) ?></h2>
               <br>
-              <div class="well well-sm" style="color:#333">
+              <div class="well well-sm" style="color:#333" >
                 <?php echo "$r->nm_prov, $r->nm_kota"; ?>
                 <hr>
                 <p><?php echo substr($r->deskripsi, 0, 50) ?></p>

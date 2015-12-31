@@ -15,7 +15,7 @@
             <div class="container">
 
               <div class="row">
-              	<h5 class="teal=">Contact</h5>
+              	<h5 class="teal=">Kontak</h5>
               	<span class="thin">
               Silahkan hubungi kami melalui channel media sosial atau mengisi form dibawah ini. 
             </span>
@@ -38,7 +38,7 @@
                   <div class="row">
                     <div class="input-field col s12">
                       <textarea name="message" class="materialize-textarea" required="true"></textarea>
-                      <label for="message">Message</label>
+                      <label for="message">Pesan</label>
                     </div>
                   </div>
 

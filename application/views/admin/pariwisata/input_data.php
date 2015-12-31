@@ -16,6 +16,9 @@
                             echo '<option value='.$prov->id_prov.'>'.$prov->nm_prov.'</option>';
                         } ?>
                   </select>
+                   <?php if (!empty(form_error('nama_provinsi'))) {
+                      echo form_error('nama_provinsi');
+                  } ?>
               </div>
             </div>
              <div class="form-group">
@@ -46,7 +49,7 @@
                   <select class="form-control1" name="jenis">
                       <option value="" >--Pilih--</option>
                         <?php foreach ($jenis->result() as $r): ?>
-                                <option value="<?php echo $r->id_jenis_pariwisata; ?>"><?php echo $r->nama_jenis; ?></option>
+                                <option value="<?php echo $r->id_jenis_pariwisata; ?>"><?php echo ucfirst($r->nama_jenis); ?></option>
                         <?php endforeach ?>
                   </select>
                    <?php if (!empty(form_error('jenis'))) {
@@ -54,6 +57,25 @@
                   } ?>
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" > latitude lokasi</label>
+              <div class="col-sm-10">
+                  <input type="text" name="lat" class="form-control1">
+                   <?php if (!empty(form_error('lat'))) {
+                      echo form_error('lat');
+                  } ?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label" > longitude lokasi</label>
+              <div class="col-sm-10">
+                  <input type="text" name="lng" class="form-control1">
+                   <?php if (!empty(form_error('lng'))) {
+                      echo form_error('lng');
+                  } ?>
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="" class="col-md-2 control-label">Deskripsi Pariwisata</label>
               <div class="col-sm-10">

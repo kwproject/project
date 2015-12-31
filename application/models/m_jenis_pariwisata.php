@@ -10,7 +10,12 @@
 	    
 	    function AmbilData(){
 	        
-	        return $this->db->get_where($this->table);        
+	        $query = $this->db->get_where($this->table);
+	        if ($query->num_rows() > 0 ) {
+	        	return $query;
+            } else {
+            	return null;
+            }        
 	    }
 	    
 	    function getOne($data){

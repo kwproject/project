@@ -8,7 +8,7 @@
 			$this->load->model(array('m_berita','m_login'));
 			$this->user = $this->session->userdata('username');
 			$this->data = array(
-				'title' => 'Blog',
+				'title'     => 'Berita',
 				'pengguna'	=> $this->m_login->data($this->user),
 			);
 		}

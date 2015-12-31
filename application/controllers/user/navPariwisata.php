@@ -7,7 +7,7 @@ class NavPariwisata extends CI_Controller {
 	{
 
 		parent::__construct();
-		$this->load->model(array('m_provinsi','m_login','m_navParis'));
+		$this->load->model(array('m_provinsi','m_login','m_navParis','m_jenis_pariwisata'));
 		$user = $this->session->userdata('username');	
 		$this->data = array(
 			'title'		=> 'Pariwisata',	
@@ -15,6 +15,7 @@ class NavPariwisata extends CI_Controller {
 			'heading1' 	=> 'Hasil Pariwisata',
 			'prov'    	=> $this->m_provinsi->AmbilData(),
 			'pengguna'	=> $this->m_login->data($user),
+			'jenis'		=> $this->m_jenis_pariwisata->AmbilData()
 		); 	
 	}
 
@@ -23,8 +24,6 @@ class NavPariwisata extends CI_Controller {
 	{
 		if (isset($_POST['submit'])) {
 			$hasil = $this->m_navParis->getPariwisata();
-			
-			
 			if ($hasil==NULL) {
 
 				$this->data['notif'] = "Data tidak ada"; 
@@ -50,8 +49,15 @@ class NavPariwisata extends CI_Controller {
 	}
 
 	public function lihat_pariw(){
-		$this->data['data']  = $this->m_navParis->getData();
-		$this->data['image'] = $this->m_navParis->getImage();
+		$hasil = $this->m_navParis->getData();
+		foreach($hasil as $h){
+			$data = $h->id_jenis_pariwisata;
+		}
+		$id = $data;
+		$id_par = $this->uri->segment(4);
+		$this->data['suggest'] = $this->m_navParis->getSuggest($id,$id_par);
+		$this->data['data']    = $this->m_navParis->getData();
+		$this->data['image']   = $this->m_navParis->getImage();
 		$this->template->load('template_user','user/lihat_pariw',$this->data);
 	}
 

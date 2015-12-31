@@ -22,6 +22,7 @@ class M_navParis extends CI_Model {
 					FROM pariwisata as p
                     INNER JOIN provinsi as pr ON p.id_prov = pr.id_prov
                     INNER JOIN kota as k ON p.id_kota = k.id_kota
+                    INNER JOIN jenis_pariwisata as jp ON p.id_jenis_pariwisata = jp.id_jenis_pariwisata
 					LEFT JOIN image as i ON p.id_pariwisata = i.id_pariwisata
 					WHERE p.id_kota = $id";
 		$result = $this->db->query($query);
@@ -47,10 +48,11 @@ class M_navParis extends CI_Model {
 
     public function getdata(){
         $id = $this->uri->segment(4);
-        $query = "	SELECT DISTINCT p.id_pariwisata, p.nm_pariwisata,p.deskripsi,i.nama_img,pr.nm_prov,k.nm_kota
+        $query = "	SELECT DISTINCT p.id_pariwisata, p.nm_pariwisata,p.deskripsi,i.nama_img,pr.nm_prov,k.nm_kota,jp.id_jenis_pariwisata
 					FROM pariwisata as p
                     INNER JOIN provinsi as pr ON p.id_prov = pr.id_prov
                     INNER JOIN kota as k ON p.id_kota = k.id_kota
+                    INNER JOIN jenis_pariwisata as jp ON p.id_jenis_pariwisata = jp.id_jenis_pariwisata
 					LEFT JOIN image as i ON p.id_pariwisata = i.id_pariwisata
 					WHERE md5(p.id_pariwisata) = '$id'";
 		$result = $this->db->query($query);
@@ -70,6 +72,22 @@ class M_navParis extends CI_Model {
     	} else {
     		return null;
     	}
+    }
+
+    public function getSuggest($id,$id_par){
+        $query = " SELECT DISTINCT p.id_pariwisata, p.nm_pariwisata,p.deskripsi,i.nama_img,pr.nm_prov,k.nm_kota,jp.id_jenis_pariwisata
+                    FROM pariwisata as p
+                    INNER JOIN provinsi as pr ON p.id_prov = pr.id_prov
+                    INNER JOIN kota as k ON p.id_kota = k.id_kota
+                    INNER JOIN jenis_pariwisata as jp ON p.id_jenis_pariwisata = jp.id_jenis_pariwisata
+                    LEFT JOIN image as i ON p.id_pariwisata = i.id_pariwisata
+                    WHERE p.id_jenis_pariwisata = $id and md5(p.id_pariwisata) != '$id_par'";
+        $result = $this->db->query($query);
+        if ($result->num_rows() > 0) {
+            return $result->result();
+        } else {
+            return null;
+        }
     }
 
 }

@@ -28,13 +28,13 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo base_url('user/navPariwisata'); ?>"><strong>Pariwisata</strong></a></li>
             <li><a href="<?php echo base_url('maps'); ?>"><strong>Peta</strong></a></li>
-            <li><a href="<?php echo base_url('blog'); ?>"><strong>Blog</strong></a></li>
+            <li><a href="<?php echo base_url('blog'); ?>"><strong>Berita</strong></a></li>
             <?php if($this->session->userdata('Login')=='berhasil' && $this->session->userdata('level')==0  && $this->session->userdata('active')==1){ ?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-               <li><a href="<?php echo base_url('user/setting_user') ?>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-               <li><a href="<?php echo base_url('login/logout') ?>"><span class="glyphicon glyphicon-off"></span> logout</a></li>
+               <li><a href="<?php echo base_url('user/setting_user') ?>"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+               <li><a href="<?php echo base_url('login/logout') ?>"><span class="glyphicon glyphicon-off"></span> Keluar</a></li>
               </ul>
             </li>
             <?php } elseif($this->session->userdata('level')==1) { ?>
@@ -42,11 +42,11 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <?php if(!empty($pengguna->nama)){echo $pengguna->nama;} ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                <li><a href="<?php echo base_url('home') ?>"><span class="glyphicon glyphicon-user"></span> Kembali Ke Admin</a></li>
-               <li><a href="<?php echo base_url('login/logout') ?>"><span class="glyphicon glyphicon-off"></span> logout</a></li>
+               <li><a href="<?php echo base_url('login/logout') ?>"><span class="glyphicon glyphicon-off"></span> Keluar</a></li>
               </ul>
             </li>
             <?php } else { ?>
-              <li><a href="<?php echo base_url('login'); ?>" class="white-text"><span class="glyphicon glyphicon-user"></span> <strong>Masuk | Gabung</strong></a></li>
+              <li><a href="<?php echo base_url('login'); ?>" class="white-text"><span class="glyphicon glyphicon-user"></span> <strong>Masuk | Daftar</strong></a></li>
            <?php } ?>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -75,7 +75,7 @@
            <h4>Umum</h4>
            <ul class="unstyled">
               <li><a href="<?php echo base_url('user/navPariwisata') ?>">Pariwisata</a></li>
-              <li><a href="<?php echo base_url('blog') ?>">Blog</a></li>
+              <li><a href="<?php echo base_url('blog') ?>">Berita</a></li>
             </ul>
           </div><!-- end row -->
           </div><!-- end col-sm-3 -->
@@ -83,7 +83,7 @@
           <div class="container">
            <h4>Cari</h4>
            <ul>
-             <li><a href="#">Lokasi</a></li>
+             <li><a href="#">Peta</a></li>
            </ul>
           </div>
           </div><!-- end col-sm-3 -->

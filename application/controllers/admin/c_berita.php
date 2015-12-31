@@ -192,11 +192,11 @@ class C_berita extends CI_Controller {
                     );
 
                 }
-                    $id      = $this->session->userdata('id_user');
+                    $id_user = $this->session->userdata('id_user');
                     $date    = gmdate("Y-m-d H:i:s", time()+60*60*7);
                     $laporan = array(
 
-                        'id_user'       => $id,
+                        'id_user'       => $id_user,
                         'aktifitas'     => 'Telah melakukan Update data Berita dijudul '.$judul.'',
                         'tanggal'       => $date,
 
