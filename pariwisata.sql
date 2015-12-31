@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2015 at 05:45 AM
+-- Generation Time: Dec 31, 2015 at 09:44 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -59,7 +59,26 @@ INSERT INTO `aktifitas` (`id_aktifitas`, `id_user`, `aktifitas`, `tanggal`) VALU
 (36, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-30 00:28:27'),
 (37, 3, 'Telah melakukan Update pada Pariwisata asdagggggggg', '2015-12-30 00:33:06'),
 (38, 3, 'Telah melakukan Update pada Pariwisata asdagggggggg', '2015-12-30 00:33:11'),
-(39, 3, 'Telah melakukan Input data pada Pariwisata ASDASD', '2015-12-31 11:26:32');
+(39, 3, 'Telah melakukan Input data pada Pariwisata ASDASD', '2015-12-31 11:26:32'),
+(40, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 13:56:58'),
+(41, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 13:57:48'),
+(42, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:34:29'),
+(43, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:37:28'),
+(44, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:38:00'),
+(45, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:45:01'),
+(46, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:45:47'),
+(47, 3, 'Telah melakukan proses penerimaan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 14:46:31'),
+(48, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-31 15:06:57'),
+(49, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-31 15:07:50'),
+(50, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-31 15:08:14'),
+(51, 3, 'Telah melakukan Update pada Pariwisata ASDASD', '2015-12-31 15:09:26'),
+(52, 3, 'Telah melakukan proses penolakan rekomendasi dari dengan pariwisata ', '2015-12-31 15:22:34'),
+(53, 3, 'Telah melakukan proses penolakan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 15:24:27'),
+(54, 3, 'Telah melakukan proses penolakan rekomendasi dari brontoxdengan pariwisata asdasdasd', '2015-12-31 15:25:00'),
+(55, 3, 'Telah melakukan Update pada Pariwisata asdasdasd', '2015-12-31 15:38:40'),
+(56, 3, 'Telah melakukan Delete pada Pariwisata ASDASD', '2015-12-31 15:39:07'),
+(57, 3, 'Telah melakukan Delete pada Pariwisata ', '2015-12-31 15:40:36'),
+(58, 3, 'Telah melakukan Delete pada Pariwisata asdasdasd', '2015-12-31 15:40:45');
 
 -- --------------------------------------------------------
 
@@ -120,7 +139,11 @@ INSERT INTO `image` (`id_img`, `nama_img`, `full_path`, `id_pariwisata`) VALUES
 (12, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
 (13, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
 (14, 'steamworkshop_webupload_previewfile_280320115_preview.jpg', 'C:/xampp/htdocs/kompress/uploads/steamworkshop_webupload_previewfile_280320115_preview.jpg', 8),
-(15, 'Screenshot_5.png', 'C:/xampp/htdocs/kompress/uploads/Screenshot_5.png', 19);
+(15, 'Screenshot_5.png', 'C:/xampp/htdocs/kompress/uploads/Screenshot_5.png', 19),
+(16, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg', 27),
+(17, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg', 27),
+(18, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg', 34),
+(19, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg', 35);
 
 -- --------------------------------------------------------
 
@@ -697,7 +720,13 @@ CREATE TABLE `pariwisata` (
 --
 
 INSERT INTO `pariwisata` (`id_pariwisata`, `nm_pariwisata`, `deskripsi`, `id_kota`, `id_jenis_pariwisata`, `id_prov`, `lat`, `lng`) VALUES
-(27, 'ASDASD', '<p>aasdasdasdasd</p>', 3, 2, 1, 10000.000000, 10000.000000);
+(28, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(30, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(31, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(32, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(33, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(34, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000),
+(35, 'asdasdasd', '<p>adasd</p>\r\n', 25, 2, 2, 0.000000, 0.000000);
 
 -- --------------------------------------------------------
 
@@ -717,7 +746,17 @@ CREATE TABLE `pesan` (
 
 INSERT INTO `pesan` (`id_pesan`, `isi_pesan`, `id_user`) VALUES
 (2, 'Rekomendasi anda yang bernama ASDASDsudah kami terima, Terima Kasih atas kerjasamanya ', 40),
-(4, 'Rekomendasi anda yang bernama kmenamas aja d adahsdsudah kami terima, Terima Kasih atas kerjasamanya ', 40);
+(4, 'Rekomendasi anda yang bernama kmenamas aja d adahsdsudah kami terima, Terima Kasih atas kerjasamanya ', 40),
+(5, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(6, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(7, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(8, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(9, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(10, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(11, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(12, 'Rekomendasi anda yang bernama asdasdasd sudah kami terima, Terima Kasih atas kerjasamanya ', 23),
+(13, 'Rekomendasi anda yang bernama asdasdasd kami tidak terima, Terima Kasih atas kerjasamanya ', 23),
+(14, 'Rekomendasi anda yang bernama asdasdasd kami tidak terima, Terima Kasih atas kerjasamanya ', 23);
 
 -- --------------------------------------------------------
 
@@ -785,16 +824,18 @@ CREATE TABLE `rekomendasi` (
   `nama_pariwisata` varchar(25) NOT NULL,
   `deskripsi` text NOT NULL,
   `tanggal` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `nama_img` varchar(255) NOT NULL,
+  `full_path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rekomendasi`
 --
 
-INSERT INTO `rekomendasi` (`id_rekomendasi`, `id_user`, `id_kota`, `id_prov`, `id_jenis_pariwisata`, `nama_pariwisata`, `deskripsi`, `tanggal`, `status`) VALUES
-(3, 40, 3, 1, 1, 'ASDASD', '<p>asdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddasdasdasdasdasdasdasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>', '2015-12-13 20:33:58', 1),
-(5, 40, 61, 3, 2, 'kmenamas aja d adahsd', '<p>asdasdasdasdasdpasodh oasdhoaisd oahsdasd</p>', '2015-12-14 23:34:33', 1);
+INSERT INTO `rekomendasi` (`id_rekomendasi`, `id_user`, `id_kota`, `id_prov`, `id_jenis_pariwisata`, `nama_pariwisata`, `deskripsi`, `tanggal`, `status`, `nama_img`, `full_path`) VALUES
+(6, 23, 25, 2, 2, 'asdasdasd', '<p>adasd</p>', '2015-12-31 13:20:06', 1, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg'),
+(7, 23, 25, 2, 2, 'asdasdasd', '<p>adasd</p>', '2015-12-31 13:20:44', 2, 'Festival_beach_Ancol_Jakarta.jpg', 'C:/xampp/htdocs/kompress/uploads/Festival_beach_Ancol_Jakarta.jpg');
 
 -- --------------------------------------------------------
 
@@ -929,7 +970,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `aktifitas`
 --
 ALTER TABLE `aktifitas`
-  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_aktifitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `berita`
 --
@@ -944,7 +985,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `jenis_pariwisata`
 --
@@ -964,12 +1005,12 @@ ALTER TABLE `kritik_saran`
 -- AUTO_INCREMENT for table `pariwisata`
 --
 ALTER TABLE `pariwisata`
-  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_pariwisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
@@ -979,7 +1020,7 @@ ALTER TABLE `provinsi`
 -- AUTO_INCREMENT for table `rekomendasi`
 --
 ALTER TABLE `rekomendasi`
-  MODIFY `id_rekomendasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_rekomendasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --
