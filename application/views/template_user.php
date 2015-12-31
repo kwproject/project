@@ -81,6 +81,9 @@
     </nav>
     </ul>
   </div>
+  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 100px; right: 24px;">
+    <img src="http://www.e-zeeinternet.com/count.php?page=1132215&style=default&nbdigits=7" alt="HTML Hit Counter" border="0" >
+  </div>
   
       <?php echo $contents;?>
 
