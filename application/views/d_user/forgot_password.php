@@ -12,17 +12,17 @@
         <?php echo form_open('user/forgot/v_password') ?>
         <div class="card-panel">
             <div class="row">
-                <div class="input-field col s8 push-s2">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
                     <input id="email" name="email" type="email" class="validate teal-text text-darken-5">
                     <label for="email">Masukan E-mail</label>
                 </div>
             </div>
-
             <div class="row">
-              <div class="input-field col s8 push-s4">
-                <button class="waves-effect waves-light btn">Submit</button>
-            </div>
-        </div>  
+              <div class="input-field col s12 center">
+                <button class="waves-effect waves-light btn">Konfirm</button>
+              </div>
+            </div>  
         <?php echo form_close();?>
         </div>
         </div>
